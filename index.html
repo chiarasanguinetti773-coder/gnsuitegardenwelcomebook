@@ -1,434 +1,430 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GN Suite Garden - Welcome Book</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body { font-family: system-ui, -apple-system, sans-serif; }
-    .modal { display: none; }
-    .modal.active { display: flex; }
-    .intro-screen { display: flex; }
-    .intro-screen.hidden { display: none; }
-    .main-screen { display: none; }
-    .main-screen.active { display: flex; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GN Suite Garden - Welcome Book</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; }
+        .modal { display: none; }
+        .modal.active { display: flex; }
+        .intro-screen { display: flex; }
+        .intro-screen.hidden { display: none; }
+        .main-screen { display: none; }
+        .main-screen.active { display: flex; }
+    </style>
 </head>
-
 <body class="bg-gradient-to-br from-green-50 via-white to-green-50 min-h-screen">
 
-  <!-- INTRO -->
-  <div id="introScreen" class="intro-screen min-h-screen items-center justify-center p-6">
-    <div class="max-w-4xl w-full bg-white rounded-3xl shadow-2xl overflow-hidden">
-      <div class="relative h-64 md:h-96">
-        <<img src="./IMG_3299.JPG" alt="GN Suite Garden" class="w-full h-full object-cover">>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+    <!-- INTRO -->
+    <div id="introScreen" class="intro-screen min-h-screen items-center justify-center p-6">
+        <div class="max-w-4xl w-full bg-white rounded-3xl shadow-2xl overflow-hidden">
+            <div class="relative h-64 md:h-96">
+                <!-- ✅ FOTO TUA -->
+                <img src="./IMG_3299.JPG" alt="GN Suite Garden" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
 
-        <div class="absolute top-4 right-4 flex gap-2">
-          <button id="btnItIntro" class="px-3 py-1 rounded-lg font-semibold transition-all bg-green-600 text-white shadow-lg">IT</button>
-          <button id="btnEnIntro" class="px-3 py-1 rounded-lg font-semibold transition-all bg-white/90 text-gray-700 hover:bg-white">EN</button>
+                <div class="absolute top-4 right-4 flex gap-2">
+                    <button id="btnItIntro" class="px-3 py-1 rounded-lg font-semibold transition-all bg-green-600 text-white shadow-lg">IT</button>
+                    <button id="btnEnIntro" class="px-3 py-1 rounded-lg font-semibold transition-all bg-white/90 text-gray-700 hover:bg-white">EN</button>
+                </div>
+
+                <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
+                    <h1 class="text-3xl md:text-5xl font-bold mb-2">GN Suite Garden</h1>
+                    <p class="text-lg md:text-xl flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        Via Macerata 81, Roma
+                    </p>
+                </div>
+            </div>
+
+            <div class="p-6 md:p-12 bg-gradient-to-b from-amber-50 to-white">
+                <div class="mb-8">
+                    <h2 id="welcomeSubtitle" class="text-2xl font-bold text-gray-800 mb-4">Benvenuti a GN Suite Garden</h2>
+                    <div class="space-y-3 text-gray-600">
+                        <p id="intro1" class="text-lg leading-relaxed">Siamo felici di accoglierti nella nostra suite! GN Suite Garden è uno spazio curato, moderno e confortevole, perfetto per rilassarti dopo una giornata trascorsa a esplorare Roma.</p>
+                        <p id="intro2" class="text-lg leading-relaxed">La zona è tranquilla, ben collegata e ricca di servizi a pochi passi.</p>
+                        <p id="intro3" class="text-lg font-semibold text-green-700">Sentiti come a casa — e se hai bisogno di qualsiasi cosa, siamo sempre disponibili!</p>
+                    </div>
+                </div>
+
+                <button id="startBtn" class="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold py-4 px-6 rounded-xl transition duration-300 transform hover:scale-105 shadow-lg text-lg">
+                    Inizia l'Esplorazione
+                </button>
+            </div>
         </div>
-
-        <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
-          <h1 class="text-3xl md:text-5xl font-bold mb-2">GN Suite Garden</h1>
-          <p class="text-lg md:text-xl flex items-center gap-2">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-            Via Macerata 81, Roma
-          </p>
-        </div>
-      </div>
-
-      <div class="p-6 md:p-12 bg-gradient-to-b from-amber-50 to-white">
-        <div class="mb-8">
-          <h2 id="welcomeSubtitle" class="text-2xl font-bold text-gray-800 mb-4">Benvenuti a GN Suite Garden</h2>
-          <div class="space-y-3 text-gray-600">
-            <p id="intro1" class="text-lg leading-relaxed">Siamo felici di accoglierti nella nostra suite! GN Suite Garden è uno spazio curato, moderno e confortevole, perfetto per rilassarti dopo una giornata trascorsa a esplorare Roma.</p>
-            <p id="intro2" class="text-lg leading-relaxed">La zona è tranquilla, ben collegata e ricca di servizi a pochi passi.</p>
-            <p id="intro3" class="text-lg font-semibold text-green-700">Sentiti come a casa — e se hai bisogno di qualsiasi cosa, siamo sempre disponibili!</p>
-          </div>
-        </div>
-
-        <button id="startBtn" class="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold py-4 px-6 rounded-xl transition duration-300 transform hover:scale-105 shadow-lg text-lg">
-          Inizia l'Esplorazione
-        </button>
-      </div>
     </div>
-  </div>
 
-  <!-- MAIN -->
-  <div id="mainScreen" class="main-screen min-h-screen p-4 md:p-6">
-    <div class="max-w-6xl mx-auto">
+    <!-- MAIN -->
+    <div id="mainScreen" class="main-screen min-h-screen p-4 md:p-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex justify-end mb-4">
+                <div class="flex gap-2 bg-white rounded-lg p-1 shadow-md">
+                    <button id="btnItMain" class="px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-green-600 text-white">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>IT
+                    </button>
+                    <button id="btnEnMain" class="px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-white text-gray-600 hover:bg-gray-100">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>EN
+                    </button>
+                </div>
+            </div>
 
-      <div class="flex justify-end mb-4">
-        <div class="flex gap-2 bg-white rounded-lg p-1 shadow-md">
-          <button id="btnItMain" class="px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-green-600 text-white">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            IT
-          </button>
-          <button id="btnEnMain" class="px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-white text-gray-600 hover:bg-gray-100">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            EN
-          </button>
+            <div class="text-center mb-8 md:mb-12">
+                <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mb-2">GN Suite Garden</h1>
+                <p class="text-gray-600 text-lg flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    Via Macerata 81, Roma
+                </p>
+                <p id="clickInfo" class="text-gray-500 mt-2">Clicca sulle icone per le informazioni</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+
+                <!-- ✅ APPARTAMENTO PRIMA -->
+                <button data-modal="apt" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
+                    <div class="bg-green-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="Appartamento 🏠" data-en="Apartment 🏠">Appartamento 🏠</h3>
+                </button>
+
+                <!-- Tutorial Video (DOPO) -->
+                <button data-modal="tutorial" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
+                    <div class="bg-red-500 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="Tutorial 🎬" data-en="Tutorial 🎬">Tutorial 🎬</h3>
+                </button>
+
+                <!-- Check-in -->
+                <button data-modal="cin" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
+                    <div class="bg-emerald-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="Check-in ✅" data-en="Check-in ✅">Check-in ✅</h3>
+                </button>
+
+                <!-- Check-out -->
+                <button data-modal="cout" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
+                    <div class="bg-rose-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="Check-out 🚪" data-en="Check-out 🚪">Check-out 🚪</h3>
+                </button>
+
+                <!-- Regole della Casa -->
+                <button data-modal="rules" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
+                    <div class="bg-amber-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="Regole della Casa 📌" data-en="House Rules 📌">Regole della Casa 📌</h3>
+                </button>
+
+                <!-- Ristoranti -->
+                <button data-modal="rest" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
+                    <div class="bg-orange-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="Ristoranti 🍝" data-en="Restaurants 🍝">Ristoranti 🍝</h3>
+                </button>
+
+                <!-- Metro & Bus -->
+                <button data-modal="trans" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
+                    <div class="bg-blue-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"></path>
+                        </svg>
+                    </div>
+                    <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="Metro & Bus 🚇🚌" data-en="Metro & Bus 🚇🚌">Metro & Bus 🚇🚌</h3>
+                </button>
+
+                <!-- Luoghi da Visitare -->
+                <button data-modal="attr" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
+                    <div class="bg-purple-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="Luoghi da Visitare 🗺️" data-en="Places to Visit 🗺️">Luoghi da Visitare 🗺️</h3>
+                </button>
+
+                <!-- Contatti Utili -->
+                <button data-modal="cont" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
+                    <div class="bg-slate-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="Contatti Utili ☎️" data-en="Useful Contacts ☎️">Contatti Utili ☎️</h3>
+                </button>
+
+            </div>
         </div>
-      </div>
-
-      <div class="text-center mb-8 md:mb-12">
-        <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mb-2">GN Suite Garden</h1>
-        <p class="text-gray-600 text-lg flex items-center justify-center gap-2">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-          Via Macerata 81, Roma
-        </p>
-        <p id="clickInfo" class="text-gray-500 mt-2">Clicca sulle icone per le informazioni</p>
-      </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-
-        <!-- ✅ APPARTAMENTO (PRIMA) -->
-        <button data-modal="apt" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
-          <div class="bg-green-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-            <span class="text-white text-3xl md:text-4xl">🏡</span>
-          </div>
-          <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="🏡 Appartamento" data-en="🏡 Apartment">🏡 Appartamento</h3>
-        </button>
-
-        <!-- ✅ TUTORIAL (DOPO) -->
-        <button data-modal="tutorial" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
-          <div class="bg-red-500 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-            <span class="text-white text-3xl md:text-4xl">🎬</span>
-          </div>
-          <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="🎬 Tutorial" data-en="🎬 Tutorial">🎬 Tutorial</h3>
-        </button>
-
-        <!-- Check-in -->
-        <button data-modal="cin" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
-          <div class="bg-emerald-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-            <span class="text-white text-3xl md:text-4xl">✅</span>
-          </div>
-          <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="✅ Check-in" data-en="✅ Check-in">✅ Check-in</h3>
-        </button>
-
-        <!-- Check-out -->
-        <button data-modal="cout" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
-          <div class="bg-rose-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-            <span class="text-white text-3xl md:text-4xl">🚪</span>
-          </div>
-          <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="🚪 Check-out" data-en="🚪 Check-out">🚪 Check-out</h3>
-        </button>
-
-        <!-- Regole -->
-        <button data-modal="rules" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
-          <div class="bg-amber-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-            <span class="text-white text-3xl md:text-4xl">📌</span>
-          </div>
-          <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="📌 Regole" data-en="📌 Rules">📌 Regole</h3>
-        </button>
-
-        <!-- Ristoranti -->
-        <button data-modal="rest" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
-          <div class="bg-orange-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-            <span class="text-white text-3xl md:text-4xl">🍝</span>
-          </div>
-          <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="🍝 Ristoranti" data-en="🍝 Restaurants">🍝 Ristoranti</h3>
-        </button>
-
-        <!-- Metro & Bus -->
-        <button data-modal="trans" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
-          <div class="bg-blue-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-            <span class="text-white text-3xl md:text-4xl">🚌🚇</span>
-          </div>
-          <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="🚌🚇 Metro & Bus" data-en="🚌🚇 Metro & Bus">🚌🚇 Metro & Bus</h3>
-        </button>
-
-        <!-- Luoghi -->
-        <button data-modal="attr" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
-          <div class="bg-purple-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-            <span class="text-white text-3xl md:text-4xl">🗺️</span>
-          </div>
-          <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="🗺️ Luoghi da visitare" data-en="🗺️ Places to visit">🗺️ Luoghi da visitare</h3>
-        </button>
-
-        <!-- Contatti -->
-        <button data-modal="cont" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
-          <div class="bg-slate-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-            <span class="text-white text-3xl md:text-4xl">☎️</span>
-          </div>
-          <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="☎️ Contatti utili" data-en="☎️ Useful contacts">☎️ Contatti utili</h3>
-        </button>
-
-      </div>
     </div>
-  </div>
 
-  <!-- MODAL -->
-  <div id="modal" class="modal fixed inset-0 bg-black bg-opacity-50 items-start justify-center p-4 z-50 pt-8 pb-8 overflow-y-auto">
-    <div class="bg-white rounded-2xl max-w-3xl w-full shadow-2xl" id="modalBox">
-      <div class="bg-white border-b border-gray-200 p-4 md:p-6 flex justify-between items-center rounded-t-2xl">
-        <h2 id="modalTitle" class="text-xl md:text-2xl font-bold text-gray-800 pr-4"></h2>
-        <button id="closeModalBtn" class="text-gray-500 hover:text-gray-700 transition-colors flex-shrink-0">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-      <div id="modalContent" class="p-4 md:p-6 max-h-[70vh] overflow-y-auto"></div>
+    <!-- MODAL -->
+    <div id="modal" class="modal fixed inset-0 bg-black bg-opacity-50 items-start justify-center p-4 z-50 pt-8 pb-8 overflow-y-auto">
+        <div class="bg-white rounded-2xl max-w-3xl w-full shadow-2xl" id="modalBox">
+            <div class="bg-white border-b border-gray-200 p-4 md:p-6 flex justify-between items-center rounded-t-2xl">
+                <h2 id="modalTitle" class="text-xl md:text-2xl font-bold text-gray-800 pr-4"></h2>
+                <button id="closeModalBtn" class="text-gray-500 hover:text-gray-700 transition-colors flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="modalContent" class="p-4 md:p-6 max-h-[70vh] overflow-y-auto"></div>
+        </div>
     </div>
-  </div>
 
 <script>
 var data = {
-  it: {
-    tutorial: {
-      t: "🎬 Tutorial",
-      txt: "Guarda qui il video per scoprire come funziona l'appartamento!",
-      btn: "🎥 Guarda il Video",
-      url: "https://youtube.com/shorts/RiZ7aOi_c-8?si=DlMCgbr4CGudQM9e"
+    it: {
+        tutorial: { 
+            t: "🎬 Tutorial", 
+            txt: "Guarda qui il video per scoprire come funziona l'appartamento!",
+            btn: "Guarda il Video",
+            url: "https://youtube.com/shorts/RiZ7aOi_c-8?si=DlMCgbr4CGudQM9e"
+        },
+        apt: { 
+            t: "🏠 GN Suite Garden", 
+            txt: "Posizione: Via Macerata 81, Roma\n\nMetri quadri: 39 + 30 con giardino.\n1 cucina, 1 bagno e 2 posti letto.\n\nWiFi: Gnsuitegarden\nPassword: 17042024\n\nGN Suite Garden è uno spazio curato, moderno e confortevole, perfetto per rilassarti dopo una giornata trascorsa a esplorare Roma.\n\nLa zona è tranquilla, ben collegata e ricca di servizi a pochi passi.\n\nSentiti come a casa — e se hai bisogno di qualsiasi cosa, siamo sempre disponibili!" 
+        },
+        cin: { 
+            t: "🕐 Check-in", 
+            txt: "Benvenuti a GN Suite Garden!\n\nPer completare il check-in, clicca sul pulsante e compila il modulo.\n\nContatto:\n+39 389 3182117\n\nIn caso di problemi o ritardi, contattateci!", 
+            btn: "Compila Modulo Check-in", 
+            url: "https://docs.google.com/forms/d/e/1FAIpQLSe1E4FbX-ynNWTetgr4PFvtx8ownNgcc4AoNn6SmHXM-jlh0g/viewform" 
+        },
+        cout: { 
+            t: "🚪 Check-out", 
+            txt: "Prima di partire, ti chiediamo di:\n\n- Chiudere finestre e porte\n- Spegnere luci e climatizzazione\n- Lasciare la casa in ordine\n- Non lasciare rifiuti in casa\n\nHai bisogno di posticipare il check-out o hai dimenticato qualcosa?\n\nCompila il modulo o contattaci:\n+39 389 3182117\n\nSperiamo di rivederti presto!", 
+            btn: "Compila Modulo Check-out", 
+            url: "https://docs.google.com/forms/d/e/1FAIpQLSdSXEtWCGp0ZCN8UOZttVPgkS_yb77UrE8kMjQ_q0vwo7ln7g/viewform" 
+        },
+        rules: {
+            t: "🏡 Regole della Casa",
+            txt: "Per garantire un soggiorno piacevole a te e ai vicini:\n\n1. 🔇 Silenzio dopo le 22:00\n\n2. 🚭 Non fumare all'interno dell'appartamento\n\n3. 👥 Ospiti esterni non ammessi senza autorizzazione\n\n4. 🛋️ Usa con cura mobili ed elettrodomestici\n\n5. 🗑️ Ti chiediamo di non lasciare rifiuti in casa al check-out\n\n6. 🏢 Rispetta gli spazi comuni del palazzo\n\nGrazie per la collaborazione!"
+        },
+        rest: { 
+            t: "🍽️ Ristoranti Consigliati", 
+            txt: "Ecco alcuni locali / ristoranti vicini:\n\n━━━━━━━━━━━━━━━━━━━━━━\nRISTORANTI\n━━━━━━━━━━━━━━━━━━━━━━\n\n🍝 Dar Parucca\nRistorante romano — accanto Gn Suite\n\n🍝 Magnebevo e sto ar Pigneto\nRistorante romano — accanto Gn Suite\n\n🌍 Mrgda Ristorante\nCucina etiope/eritrea — ≈ 650-700 m\n\n🥩 Mr Manzo Griglieria\nGriglieria / carne — ≈ 700-750 m\n\n🇵🇪 Quipu - Cucina Peruviana\nInternazionale / alternativa — ≈ 780 m\n\n🍝 Necci dal 19124\nCucina Romana — ≈ 600 m / 9 min a piedi\n\n━━━━━━━━━━━━━━━━━━━━━━\nENOTECHE / PUB\n━━━━━━━━━━━━━━━━━━━━━━\n\n🍷 Enoteca Di Via Macerata Roma\n\n🍺 Kram Pigneto",
+            links: [
+                { n: "Enoteca Di Via Macerata", u: "https://maps.app.goo.gl/xSDMWvq6K4xPhPsM7", d: "Vedi su Google Maps" },
+                { n: "Kram Pigneto", u: "https://maps.app.goo.gl/1ZW5G9SwTKYV3dvW6", d: "Vedi su Google Maps" }
+            ]
+        },
+        trans: { 
+            t: "🚇 Trasporti Pubblici", 
+            txt: "FERMATE VICINE A VIA MACERATA 81\n\n🚇 Stazione Pigneto (Metro linea C)\nMetropolitana — ~ 4 min a piedi\n\n🚌 P.le Prenestino (bus/tram/ATAC)\nBus / tram / autobus — ~ 3-4 min a piedi\n\n🚌 Fermata Aquila (bus)\nAutobus — ~ 4 min a piedi\n\n🚂 Fermata Sant'Elena (ferrovia urbana)\nTreno urbano / ferrovia locale — ~ 4 min a piedi\n\n🚌 Prenestina/Officine ATAC (bus/tram)\nBus / tram — ~ 5 min a piedi\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nLinee di bus/tram attive: 105, 81, 14BUS, 412 (e altre)\n\nBiglietto: €1,50\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nTAXI\nTel: +39 06 3570 / +39 06 6645\n\nDAGLI AEROPORTI\nDa Fiumicino: Leonardo Express → Termini (~€14) o Taxi (~€50)\nDa Ciampino: Bus navetta → Termini o Taxi (~€35)",
+            btn: "Pianifica Percorso",
+            url: "https://moovitapp.com/index/it/mezzi_pubblici-Via_Macerata-Roma_e_Lazio-site_18498159-301"
+        },
+        attr: { 
+            t: "🗺️ Itinerario Roma - Cosa Vedere", 
+            txt: "Una selezione dei luoghi più iconici e suggestivi di Roma, perfetti per costruire il tuo itinerario giornaliero.\n\nCliccando sui link potrai aprire direttamente la posizione su Google Maps.\n\n━━━━━━━━━━━━━━━━━━━━━━",
+            links: [
+                { n: "🏛️ 1. Colosseo & Foro Romano", u: "https://maps.app.goo.gl/4jwgRR2L2jWzM4waA", d: "Il simbolo di Roma. Puoi visitare il Colosseo, poi scendere nella valle del Foro Romano e salire sul Palatino." },
+                { n: "👑 2. Altare della Patria & Piazza Venezia", u: "https://maps.app.goo.gl/CLjn9nK3UH1yLdUBA", d: "Il \"Vittoriano\" è uno dei monumenti più imponenti della città, con terrazza panoramica." },
+                { n: "✨ 3. Fontana di Trevi", u: "https://maps.app.goo.gl/FDbe8A5Sn6acYU7T9", d: "La fontana più famosa al mondo. Imperdibile." },
+                { n: "🛍️ 4. Piazza di Spagna & Trinità dei Monti", u: "https://maps.app.goo.gl/SpagnaRoma", d: "La scalinata più celebre di Roma, cuore dello shopping." },
+                { n: "⛪ 5. Pantheon", u: "https://maps.app.goo.gl/PantheonRoma", d: "Il tempio romano meglio conservato, con la sua cupola mozzafiato." },
+                { n: "🎭 6. Piazza Navona", u: "https://maps.app.goo.gl/NavonaRoma", d: "La piazza barocca più bella di Roma con le fontane del Bernini." },
+                { n: "🏰 7. Castel Sant'Angelo", u: "https://maps.app.goo.gl/CastelSantAngelo", d: "Mausoleo imperiale e fortezza papale con vista sul Tevere." },
+                { n: "⛪ 8. Basilica di San Pietro & Vaticano", u: "https://maps.app.goo.gl/VaticanoRoma", d: "Il cuore della cristianità con la Cappella Sistina e i Musei Vaticani." }
+            ]
+        },
+        cont: { 
+            t: "📞 Contatti Utili", 
+            txt: "CONTATTO PROPRIETÀ\n+39 389 3182117\n\nEMERGENZE\n- Emergenza Generale: 112\n- Polizia: 113\n- Vigili del Fuoco: 115\n- Ambulanza: 118\n\nTAXI\n- Radio Taxi: +39 06 3570\n- Taxi Roma: +39 06 6645\n\nGUARDIA MEDICA\n- Numero verde: 800 118 000\n\nPer qualsiasi necessità, contattaci sempre!" 
+        }
     },
-    apt: {
-      t: "🏡 GN Suite Garden",
-      txt:
-"📍 Posizione: Via Macerata 81, Roma\n\n" +
-"📐 Metri quadri: 39 + 30 con giardino 🌿\n" +
-"🛏️ 2 posti letto\n" +
-"🍳 1 cucina\n" +
-"🛁 1 bagno\n\n" +
-"GN Suite Garden è uno spazio curato, moderno e confortevole, perfetto per rilassarti dopo una giornata trascorsa a esplorare Roma.\n\n" +
-"La zona è tranquilla, ben collegata e ricca di servizi a pochi passi.\n\n" +
-"📶 Wi-Fi: Disponibile in appartamento\n\n" +
-"Sentiti come a casa — e se hai bisogno di qualsiasi cosa, siamo sempre disponibili! 💚"
-    },
-    cin: {
-      t: "✅ Check-in",
-      txt: "Benvenuti a GN Suite Garden!\n\nPer completare il check-in, clicca sul pulsante e compila il modulo.\n\nContatto:\n+39 389 3182117\n\nIn caso di problemi o ritardi, contattateci!",
-      btn: "✍️ Compila Modulo Check-in",
-      url: "https://docs.google.com/forms/d/e/1FAIpQLSe1E4FbX-ynNWTetgr4PFvtx8ownNgcc4AoNn6SmHXM-jlh0g/viewform"
-    },
-    cout: {
-      t: "🚪 Check-out",
-      txt: "Prima di partire, ti chiediamo di:\n\n- Chiudere finestre e porte\n- Spegnere luci e climatizzazione\n- Lasciare la casa in ordine\n- Non lasciare rifiuti in casa\n\nHai bisogno di posticipare il check-out o hai dimenticato qualcosa?\n\nCompila il modulo o contattaci:\n+39 389 3182117\n\nSperiamo di rivederti presto! ✨",
-      btn: "📝 Compila Modulo Check-out",
-      url: "https://docs.google.com/forms/d/e/1FAIpQLSdSXEtWCGp0ZCN8UOZttVPgkS_yb77UrE8kMjQ_q0vwo7ln7g/viewform"
-    },
-    rules: {
-      t: "📌 Regole della Casa",
-      txt: "Per garantire un soggiorno piacevole a te e ai vicini:\n\n1. 🔇 Silenzio dopo le 22:00\n\n2. 🚭 Non fumare all'interno dell'appartamento\n\n3. 👥 Ospiti esterni non ammessi senza autorizzazione\n\n4. 🛋️ Usa con cura mobili ed elettrodomestici\n\n5. 🗑️ Ti chiediamo di non lasciare rifiuti in casa al check-out\n\n6. 🏢 Rispetta gli spazi comuni del palazzo\n\nGrazie per la collaborazione! 💚"
-    },
-    rest: {
-      t: "🍽️ Ristoranti Consigliati",
-      txt: "Ecco alcuni locali / ristoranti vicini:",
-      links: [
-        { n: "🍷 Enoteca Di Via Macerata", u: "https://maps.app.goo.gl/xSDMWvq6K4xPhPsM7", d: "Vedi su Google Maps" },
-        { n: "🍺 Kram Pigneto", u: "https://maps.app.goo.gl/1ZW5G9SwTKYV3dvW6", d: "Vedi su Google Maps" }
-      ]
-    },
-    trans: {
-      t: "🚌🚇 Trasporti Pubblici",
-      txt: "FERMATE VICINE A VIA MACERATA 81\n\n🚇 Stazione Pigneto (Metro linea C)\nMetropolitana — ~ 4 min a piedi\n\n🚌 P.le Prenestino (bus/tram/ATAC)\nBus / tram — ~ 3-4 min a piedi\n\nBiglietto: €1,50\n\nTAXI\nTel: +39 06 3570 / +39 06 6645",
-      btn: "🧭 Pianifica Percorso",
-      url: "https://moovitapp.com/index/it/mezzi_pubblici-Via_Macerata-Roma_e_Lazio-site_18498159-301"
-    },
-    attr: {
-      t: "🗺️ Itinerario Roma - Cosa Vedere",
-      txt: "Clicca sui link per aprire la posizione su Google Maps 👇",
-      links: [
-        { n: "🏛️ Colosseo & Foro Romano", u: "https://maps.app.goo.gl/4jwgRR2L2jWzM4waA", d: "Il simbolo di Roma" },
-        { n: "✨ Fontana di Trevi", u: "https://maps.app.goo.gl/FDbe8A5Sn6acYU7T9", d: "Imperdibile" },
-        { n: "⛪ Vaticano & San Pietro", u: "https://maps.app.goo.gl/VaticanoRoma", d: "Musei Vaticani e Basilica" }
-      ]
-    },
-    cont: {
-      t: "☎️ Contatti Utili",
-      txt: "CONTATTO PROPRIETÀ\n+39 389 3182117\n\nEMERGENZE\n- 112\n- Polizia: 113\n- Vigili del Fuoco: 115\n- Ambulanza: 118\n\nTAXI\n- +39 06 3570\n- +39 06 6645"
+    en: {
+        tutorial: { 
+            t: "🎬 Tutorial", 
+            txt: "Watch the video to learn how the apartment works!",
+            btn: "Watch Video",
+            url: "https://youtube.com/shorts/RiZ7aOi_c-8?si=DlMCgbr4CGudQM9e"
+        },
+        apt: { 
+            t: "🏠 GN Suite Garden", 
+            txt: "Location: Via Macerata 81, Rome\n\nSize: 39 sqm + 30 sqm garden.\n1 kitchen, 1 bathroom and 2 sleeping places.\n\nWiFi: Gnsuitegarden\nPassword: 17042024\n\nGN Suite Garden is a well-maintained, modern and comfortable space, perfect for relaxing after a day exploring Rome.\n\nThe area is quiet, well-connected and full of services within walking distance.\n\nFeel at home — and if you need anything, we're always available!" 
+        },
+        cin: { 
+            t: "🕐 Check-in", 
+            txt: "Welcome to GN Suite Garden!\n\nTo complete check-in, click the button and fill out the form.\n\nContact:\n+39 389 3182117\n\nIn case of problems or delays, contact us!", 
+            btn: "Fill Check-in Form", 
+            url: "https://docs.google.com/forms/d/e/1FAIpQLSe1E4FbX-ynNWTetgr4PFvtx8ownNgcc4AoNn6SmHXM-jlh0g/viewform" 
+        },
+        cout: { 
+            t: "🚪 Check-out", 
+            txt: "Before leaving, please:\n\n- Close windows and doors\n- Turn off lights and air conditioning\n- Leave the house tidy\n- Don't leave trash in the house\n\nNeed to postpone check-out or forgot something?\n\nFill out the form or contact us:\n+39 389 3182117\n\nHope to see you again soon!", 
+            btn: "Fill Check-out Form", 
+            url: "https://docs.google.com/forms/d/e/1FAIpQLSdSXEtWCGp0ZCN8UOZttVPgkS_yb77UrE8kMjQ_q0vwo7ln7g/viewform" 
+        },
+        rules: {
+            t: "🏡 House Rules",
+            txt: "To ensure a pleasant stay for you and the neighbors:\n\n1. 🔇 Quiet time after 10:00 PM\n\n2. 🚭 No smoking inside the apartment\n\n3. 👥 External guests not allowed without authorization\n\n4. 🛋️ Use furniture and appliances with care\n\n5. 🗑️ Please don't leave trash in the house at check-out\n\n6. 🏢 Respect the common areas of the building\n\nThank you for your cooperation!"
+        },
+        rest: { 
+            t: "🍽️ Recommended Restaurants", 
+            txt: "Here are some nearby restaurants / venues:\n\n━━━━━━━━━━━━━━━━━━━━━━\nRESTAURANTS\n━━━━━━━━━━━━━━━━━━━━━━\n\n🍝 Dar Parucca\nRoman restaurant — next to Gn Suite\n\n🍝 Magnebevo e sto ar Pigneto\nRoman restaurant — next to Gn Suite\n\n🌍 Mrgda Ristorante\nEthiopian/Eritrean cuisine — ≈ 650-700 m\n\n🥩 Mr Manzo Griglieria\nGrill / meat — ≈ 700-750 m\n\n🇵🇪 Quipu - Peruvian Cuisine\nInternational / alternative — ≈ 780 m\n\n🍝 Necci dal 19124\nRoman Cuisine — ≈ 600 m / 9 min walk\n\n━━━━━━━━━━━━━━━━━━━━━━\nWINE BARS / PUBS\n━━━━━━━━━━━━━━━━━━━━━━\n\n🍷 Enoteca Di Via Macerata Roma\n\n🍺 Kram Pigneto",
+            links: [
+                { n: "Enoteca Di Via Macerata", u: "https://maps.app.goo.gl/xSDMWvq6K4xPhPsM7", d: "View on Google Maps" },
+                { n: "Kram Pigneto", u: "https://maps.app.goo.gl/1ZW5G9SwTKYV3dvW6", d: "View on Google Maps" }
+            ]
+        },
+        trans: { 
+            t: "🚇 Public Transportation", 
+            txt: "STOPS NEAR VIA MACERATA 81\n\n🚇 Pigneto Station (Metro line C)\nMetropolitan — ~ 4 min walk\n\n🚌 P.le Prenestino (bus/tram/ATAC)\nBus / tram / autobus — ~ 3-4 min walk\n\n🚌 Aquila Stop (bus)\nAutobus — ~ 4 min walk\n\n🚂 Sant'Elena Stop (urban railway)\nUrban train / local railway — ~ 4 min walk\n\n🚌 Prenestina/Officine ATAC (bus/tram)\nBus / tram — ~ 5 min walk\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nActive bus/tram lines: 105, 81, 14BUS, 412 (and others)\n\nTicket: €1.50\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nTAXI\nTel: +39 06 3570 / +39 06 6645\n\nFROM AIRPORTS\nFrom Fiumicino: Leonardo Express → Termini (~€14) or Taxi (~€50)\nFrom Ciampino: Shuttle bus → Termini or Taxi (~€35)",
+            btn: "Plan Your Route",
+            url: "https://moovitapp.com/index/en/public_transit-Via_Macerata-Rome_and_Lazio-site_18498159-301"
+        },
+        attr: { 
+            t: "🗺️ Rome Itinerary - What to See", 
+            txt: "A selection of the most iconic and scenic places in Rome, perfect for building your daily itinerary.\n\nClick on the links to open the location directly on Google Maps.\n\n━━━━━━━━━━━━━━━━━━━━━━",
+            links: [
+                { n: "🏛️ 1. Colosseum & Roman Forum", u: "https://maps.app.goo.gl/4jwgRR2L2jWzM4waA", d: "The symbol of Rome. Visit the Colosseum, then descend into the Roman Forum valley and climb the Palatine." },
+                { n: "👑 2. Altare della Patria & Piazza Venezia", u: "https://maps.app.goo.gl/CLjn9nK3UH1yLdUBA", d: "The \"Vittoriano\" is one of the most imposing monuments in the city, with a panoramic terrace." },
+                { n: "✨ 3. Trevi Fountain", u: "https://maps.app.goo.gl/FDbe8A5Sn6acYU7T9", d: "The most famous fountain in the world. A must-see." },
+                { n: "🛍️ 4. Spanish Steps & Trinità dei Monti", u: "https://maps.app.goo.gl/SpagnaRoma", d: "Rome's most famous staircase, heart of shopping." },
+                { n: "⛪ 5. Pantheon", u: "https://maps.app.goo.gl/PantheonRoma", d: "The best preserved Roman temple, with its breathtaking dome." },
+                { n: "🎭 6. Piazza Navona", u: "https://maps.app.goo.gl/NavonaRoma", d: "Rome's most beautiful baroque square with Bernini's fountains." },
+                { n: "🏰 7. Castel Sant'Angelo", u: "https://maps.app.goo.gl/CastelSantAngelo", d: "Imperial mausoleum and papal fortress with views over the Tiber." },
+                { n: "⛪ 8. St. Peter's Basilica & Vatican", u: "https://maps.app.goo.gl/VaticanoRoma", d: "The heart of Christianity with the Sistine Chapel and Vatican Museums." }
+            ]
+        },
+        cont: { 
+            t: "📞 Useful Contacts", 
+            txt: "PROPERTY CONTACT\n+39 389 3182117\n\nEMERGENCIES\n- General Emergency: 112\n- Police: 113\n- Fire Department: 115\n- Ambulance: 118\n\nTAXI\n- Radio Taxi: +39 06 3570\n- Taxi Roma: +39 06 6645\n\nMEDICAL GUARD\n- Toll-free: 800 118 000\n\nFor any need, always contact us!" 
+        }
     }
-  },
-
-  en: {
-    tutorial: {
-      t: "🎬 Tutorial",
-      txt: "Watch the video to learn how the apartment works!",
-      btn: "🎥 Watch Video",
-      url: "https://youtube.com/shorts/RiZ7aOi_c-8?si=DlMCgbr4CGudQM9e"
-    },
-    apt: {
-      t: "🏡 GN Suite Garden",
-      txt:
-"📍 Location: Via Macerata 81, Rome\n\n" +
-"📐 Size: 39 sqm + 30 sqm garden 🌿\n" +
-"🛏️ 2 sleeping places\n" +
-"🍳 1 kitchen\n" +
-"🛁 1 bathroom\n\n" +
-"GN Suite Garden is a modern and comfortable space, perfect to relax after a day exploring Rome.\n\n" +
-"The area is quiet, well-connected and full of services within walking distance.\n\n" +
-"📶 Wi-Fi: Available in the apartment\n\n" +
-"Feel at home — and if you need anything, we’re always available! 💚"
-    },
-    cin: {
-      t: "✅ Check-in",
-      txt: "Welcome to GN Suite Garden!\n\nTo complete check-in, click the button and fill out the form.\n\nContact:\n+39 389 3182117\n\nIn case of problems or delays, contact us!",
-      btn: "✍️ Fill Check-in Form",
-      url: "https://docs.google.com/forms/d/e/1FAIpQLSe1E4FbX-ynNWTetgr4PFvtx8ownNgcc4AoNn6SmHXM-jlh0g/viewform"
-    },
-    cout: {
-      t: "🚪 Check-out",
-      txt: "Before leaving, please:\n\n- Close windows and doors\n- Turn off lights and air conditioning\n- Leave the house tidy\n- Don't leave trash in the house\n\nNeed to postpone check-out or forgot something?\n\nFill out the form or contact us:\n+39 389 3182117\n\nHope to see you again soon! ✨",
-      btn: "📝 Fill Check-out Form",
-      url: "https://docs.google.com/forms/d/e/1FAIpQLSdSXEtWCGp0ZCN8UOZttVPgkS_yb77UrE8kMjQ_q0vwo7ln7g/viewform"
-    },
-    rules: {
-      t: "📌 House Rules",
-      txt: "1) 🔇 Quiet time after 10:00 PM\n2) 🚭 No smoking inside\n3) 👥 No guests without authorization\n4) 🛋️ Use furniture with care\n5) 🗑️ No trash left at check-out\n6) 🏢 Respect common areas\n\nThank you! 💚"
-    },
-    rest: {
-      t: "🍽️ Recommended Restaurants",
-      txt: "Some nearby venues:",
-      links: [
-        { n: "🍷 Enoteca Di Via Macerata", u: "https://maps.app.goo.gl/xSDMWvq6K4xPhPsM7", d: "Open in Google Maps" },
-        { n: "🍺 Kram Pigneto", u: "https://maps.app.goo.gl/1ZW5G9SwTKYV3dvW6", d: "Open in Google Maps" }
-      ]
-    },
-    trans: {
-      t: "🚌🚇 Public Transportation",
-      txt: "Stops near Via Macerata 81:\n\n🚇 Pigneto Station (Metro line C) ~ 4 min walk\n🚌 P.le Prenestino (bus/tram) ~ 3-4 min walk\n\nTicket: €1.50\n\nTAXI\n+39 06 3570 / +39 06 6645",
-      btn: "🧭 Plan route",
-      url: "https://moovitapp.com/index/en/public_transit-Via_Macerata-Rome_and_Lazio-site_18498159-301"
-    },
-    attr: {
-      t: "🗺️ Rome Itinerary - What to See",
-      txt: "Click links to open Google Maps 👇",
-      links: [
-        { n: "🏛️ Colosseum & Roman Forum", u: "https://maps.app.goo.gl/4jwgRR2L2jWzM4waA", d: "Symbol of Rome" },
-        { n: "✨ Trevi Fountain", u: "https://maps.app.goo.gl/FDbe8A5Sn6acYU7T9", d: "Must-see" },
-        { n: "⛪ Vatican & St. Peter’s", u: "https://maps.app.goo.gl/VaticanoRoma", d: "Museums & Basilica" }
-      ]
-    },
-    cont: {
-      t: "☎️ Useful Contacts",
-      txt: "PROPERTY CONTACT\n+39 389 3182117\n\nEMERGENCIES\n- 112\n- Police: 113\n- Fire Dept: 115\n- Ambulance: 118\n\nTAXI\n- +39 06 3570\n- +39 06 6645"
-    }
-  }
 };
 
-var lang = "it";
+var lang = 'it';
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function() {
+    var introScreen = document.getElementById('introScreen');
+    var mainScreen = document.getElementById('mainScreen');
+    var modal = document.getElementById('modal');
+    var modalBox = document.getElementById('modalBox');
+    var modalTitle = document.getElementById('modalTitle');
+    var modalContent = document.getElementById('modalContent');
+    var startBtn = document.getElementById('startBtn');
+    var closeModalBtn = document.getElementById('closeModalBtn');
+    var btnItIntro = document.getElementById('btnItIntro');
+    var btnEnIntro = document.getElementById('btnEnIntro');
+    var btnItMain = document.getElementById('btnItMain');
+    var btnEnMain = document.getElementById('btnEnMain');
 
-  var introScreen = document.getElementById("introScreen");
-  var mainScreen = document.getElementById("mainScreen");
-  var modal = document.getElementById("modal");
-  var modalBox = document.getElementById("modalBox");
-  var modalTitle = document.getElementById("modalTitle");
-  var modalContent = document.getElementById("modalContent");
-  var startBtn = document.getElementById("startBtn");
-  var closeModalBtn = document.getElementById("closeModalBtn");
-  var btnItIntro = document.getElementById("btnItIntro");
-  var btnEnIntro = document.getElementById("btnEnIntro");
-  var btnItMain = document.getElementById("btnItMain");
-  var btnEnMain = document.getElementById("btnEnMain");
+    startBtn.addEventListener('click', function() {
+        introScreen.classList.add('hidden');
+        mainScreen.classList.add('active');
+    });
 
-  startBtn.addEventListener("click", function() {
-    introScreen.classList.add("hidden");
-    mainScreen.classList.add("active");
-  });
+    function changeLang(l) {
+        lang = l;
+        if (l === 'it') {
+            btnItIntro.className = 'px-3 py-1 rounded-lg font-semibold transition-all bg-green-600 text-white shadow-lg';
+            btnEnIntro.className = 'px-3 py-1 rounded-lg font-semibold transition-all bg-white/90 text-gray-700 hover:bg-white';
+            btnItMain.className = 'px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-green-600 text-white';
+            btnEnMain.className = 'px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-white text-gray-600 hover:bg-gray-100';
+        } else {
+            btnEnIntro.className = 'px-3 py-1 rounded-lg font-semibold transition-all bg-green-600 text-white shadow-lg';
+            btnItIntro.className = 'px-3 py-1 rounded-lg font-semibold transition-all bg-white/90 text-gray-700 hover:bg-white';
+            btnEnMain.className = 'px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-green-600 text-white';
+            btnItMain.className = 'px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-white text-gray-600 hover:bg-gray-100';
+        }
+        document.getElementById('welcomeSubtitle').textContent = l === 'it' ? 'Benvenuti a GN Suite Garden' : 'Welcome to GN Suite Garden';
+        document.getElementById('intro1').textContent = l === 'it' ? "Siamo felici di accoglierti nella nostra suite! GN Suite Garden è uno spazio curato, moderno e confortevole, perfetto per rilassarti dopo una giornata trascorsa a esplorare Roma." : "We are happy to welcome you to our suite! GN Suite Garden is a well-maintained, modern and comfortable space, perfect for relaxing after a day exploring Rome.";
+        document.getElementById('intro2').textContent = l === 'it' ? 'La zona è tranquilla, ben collegata e ricca di servizi a pochi passi.' : 'The area is quiet, well-connected and full of services within walking distance.';
+        document.getElementById('intro3').textContent = l === 'it' ? 'Sentiti come a casa — e se hai bisogno di qualsiasi cosa, siamo sempre disponibili!' : 'Feel at home — and if you need anything, we are always available!';
+        document.getElementById('startBtn').textContent = l === 'it' ? "Inizia l'Esplorazione" : 'Start Exploring';
+        document.getElementById('clickInfo').textContent = l === 'it' ? 'Clicca sulle icone per le informazioni' : 'Click on the icons for information';
 
-  function changeLang(l) {
-    lang = l;
-
-    if (l === "it") {
-      btnItIntro.className = "px-3 py-1 rounded-lg font-semibold transition-all bg-green-600 text-white shadow-lg";
-      btnEnIntro.className = "px-3 py-1 rounded-lg font-semibold transition-all bg-white/90 text-gray-700 hover:bg-white";
-      btnItMain.className = "px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-green-600 text-white";
-      btnEnMain.className = "px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-white text-gray-600 hover:bg-gray-100";
-    } else {
-      btnEnIntro.className = "px-3 py-1 rounded-lg font-semibold transition-all bg-green-600 text-white shadow-lg";
-      btnItIntro.className = "px-3 py-1 rounded-lg font-semibold transition-all bg-white/90 text-gray-700 hover:bg-white";
-      btnEnMain.className = "px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-green-600 text-white";
-      btnItMain.className = "px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-white text-gray-600 hover:bg-gray-100";
+        var txtElements = document.querySelectorAll('.txt');
+        for (var i = 0; i < txtElements.length; i++) {
+            txtElements[i].textContent = txtElements[i].getAttribute('data-' + l);
+        }
     }
 
-    document.getElementById("welcomeSubtitle").textContent = (l === "it") ? "Benvenuti a GN Suite Garden" : "Welcome to GN Suite Garden";
-    document.getElementById("intro1").textContent = (l === "it")
-      ? "Siamo felici di accoglierti nella nostra suite! GN Suite Garden è uno spazio curato, moderno e confortevole, perfetto per rilassarti dopo una giornata trascorsa a esplorare Roma."
-      : "We are happy to welcome you to our suite! GN Suite Garden is a well-maintained, modern and comfortable space, perfect for relaxing after a day exploring Rome.";
-    document.getElementById("intro2").textContent = (l === "it")
-      ? "La zona è tranquilla, ben collegata e ricca di servizi a pochi passi."
-      : "The area is quiet, well-connected and full of services within walking distance.";
-    document.getElementById("intro3").textContent = (l === "it")
-      ? "Sentiti come a casa — e se hai bisogno di qualsiasi cosa, siamo sempre disponibili!"
-      : "Feel at home — and if you need anything, we are always available!";
-    document.getElementById("startBtn").textContent = (l === "it") ? "Inizia l'Esplorazione" : "Start Exploring";
-    document.getElementById("clickInfo").textContent = (l === "it") ? "Clicca sulle icone per le informazioni" : "Click on the icons for information";
+    btnItIntro.addEventListener('click', function() { changeLang('it'); });
+    btnEnIntro.addEventListener('click', function() { changeLang('en'); });
+    btnItMain.addEventListener('click', function() { changeLang('it'); });
+    btnEnMain.addEventListener('click', function() { changeLang('en'); });
 
-    var txtElements = document.querySelectorAll(".txt");
-    for (var i = 0; i < txtElements.length; i++) {
-      txtElements[i].textContent = txtElements[i].getAttribute("data-" + l);
-    }
-  }
+    function openModal(id) {
+        var d = data[lang][id];
+        modalTitle.textContent = d.t;
 
-  btnItIntro.addEventListener("click", function() { changeLang("it"); });
-  btnEnIntro.addEventListener("click", function() { changeLang("en"); });
-  btnItMain.addEventListener("click", function() { changeLang("it"); });
-  btnEnMain.addEventListener("click", function() { changeLang("en"); });
+        var html = '<div class="whitespace-pre-line text-gray-700 text-base md:text-lg leading-relaxed">' + d.txt + '</div>';
 
-  function openModal(id) {
-    var d = data[lang] && data[lang][id];
-    if (!d) return; // ✅ evita errori se manca un id
+        if (d.btn) {
+            html += '<a href="' + d.url + '" target="_blank" class="inline-flex items-center gap-2 mt-6 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition-all">' + d.btn + '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>';
+        }
 
-    modalTitle.textContent = d.t || "";
+        if (d.links) {
+            html += '<div class="grid gap-3 mt-6">';
+            for (var i = 0; i < d.links.length; i++) {
+                var link = d.links[i];
+                html += '<a href="' + link.u + '" target="_blank" class="block p-3 bg-green-50 border-2 border-green-200 rounded-xl hover:border-green-400 hover:shadow-lg transition-all"><div class="flex justify-between items-center"><div class="font-bold text-gray-800 text-sm md:text-base">' + link.n + '</div><svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></div><div class="text-gray-600 text-xs md:text-sm mt-1">' + link.d + '</div></a>';
+            }
+            html += '</div>';
+        }
 
-    var html = "";
-    if (d.txt) {
-      html += '<div class="whitespace-pre-line text-gray-700 text-base md:text-lg leading-relaxed">' + d.txt + "</div>";
+        modalContent.innerHTML = html;
+        modal.classList.add('active');
     }
 
-    if (d.btn && d.url) {
-      html += '<a href="' + d.url + '" target="_blank" class="inline-flex items-center gap-2 mt-6 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition-all">'
-           + d.btn
-           + '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></a>';
+    function closeModal() {
+        modal.classList.remove('active');
     }
 
-    if (d.links) {
-      html += '<div class="grid gap-3 mt-6">';
-      for (var i = 0; i < d.links.length; i++) {
-        var link = d.links[i];
-        html += '<a href="' + link.u + '" target="_blank" class="block p-3 bg-green-50 border-2 border-green-200 rounded-xl hover:border-green-400 hover:shadow-lg transition-all">'
-             + '<div class="flex justify-between items-center">'
-             + '<div class="font-bold text-gray-800 text-sm md:text-base">' + link.n + "</div>"
-             + '<svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>'
-             + "</div>"
-             + '<div class="text-gray-600 text-xs md:text-sm mt-1">' + (link.d || "") + "</div>"
-             + "</a>";
-      }
-      html += "</div>";
-    }
+    closeModalBtn.addEventListener('click', closeModal);
 
-    modalContent.innerHTML = html;
-    modal.classList.add("active");
-  }
+    /* ✅ FIX CLICK: event delegation */
+    document.addEventListener('click', function(e) {
+        var btn = e.target.closest('.modal-btn');
+        if (!btn) return;
+        var modalId = btn.getAttribute('data-modal');
+        openModal(modalId);
+    });
 
-  function closeModal() {
-    modal.classList.remove("active");
-  }
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
 
-  closeModalBtn.addEventListener("click", closeModal);
-  modal.addEventListener("click", function(e) {
-    if (e.target === modal) closeModal();
-  });
-  modalBox.addEventListener("click", function(e) {
-    e.stopPropagation();
-  });
-
-  // ✅ Event delegation (funziona sempre anche se tocchi SVG/testo)
-  document.body.addEventListener("click", function(e) {
-    var btn = e.target.closest(".modal-btn");
-    if (!btn) return;
-    var modalId = btn.getAttribute("data-modal");
-    openModal(modalId);
-  });
+    modalBox.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
 });
 </script>
-
 </body>
 </html>
