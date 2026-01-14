@@ -21,7 +21,6 @@
     <div id="introScreen" class="intro-screen min-h-screen items-center justify-center p-6">
         <div class="max-w-4xl w-full bg-white rounded-3xl shadow-2xl overflow-hidden">
             <div class="relative h-64 md:h-96">
-                <!-- ✅ FOTO TUA -->
                 <img src="./IMG_3299.JPG" alt="GN Suite Garden" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
 
@@ -62,6 +61,7 @@
     <!-- MAIN -->
     <div id="mainScreen" class="main-screen min-h-screen p-4 md:p-6">
         <div class="max-w-6xl mx-auto">
+
             <div class="flex justify-end mb-4">
                 <div class="flex gap-2 bg-white rounded-lg p-1 shadow-md">
                     <button id="btnItMain" class="px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-green-600 text-white">
@@ -91,7 +91,7 @@
 
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
 
-                <!-- ✅ APPARTAMENTO PRIMA -->
+                <!-- Appartamento -->
                 <button data-modal="apt" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
                     <div class="bg-green-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,7 +101,7 @@
                     <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="Appartamento 🏠" data-en="Apartment 🏠">Appartamento 🏠</h3>
                 </button>
 
-                <!-- Tutorial Video (DOPO) -->
+                <!-- Tutorial -->
                 <button data-modal="tutorial" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
                     <div class="bg-red-500 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -132,7 +132,7 @@
                     <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="Check-out 🚪" data-en="Check-out 🚪">Check-out 🚪</h3>
                 </button>
 
-                <!-- Regole della Casa -->
+                <!-- Regole -->
                 <button data-modal="rules" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
                     <div class="bg-amber-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -162,7 +162,7 @@
                     <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="Metro & Bus 🚇🚌" data-en="Metro & Bus 🚇🚌">Metro & Bus 🚇🚌</h3>
                 </button>
 
-                <!-- Luoghi da Visitare -->
+                <!-- Luoghi da Visitare (solo testo, niente link) -->
                 <button data-modal="attr" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
                     <div class="bg-purple-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -171,6 +171,17 @@
                         </svg>
                     </div>
                     <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="Luoghi da Visitare 🗺️" data-en="Places to Visit 🗺️">Luoghi da Visitare 🗺️</h3>
+                </button>
+
+                <!-- ✅ NUOVA ICONA: Siti affidabili per visite -->
+                <button data-modal="tickets" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
+                    <div class="bg-indigo-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <!-- Icona: ticket -->
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5 0h.01M14.5 14h.01M5 7a2 2 0 012-2h10a2 2 0 012 2v2a2 2 0 010 4v2a2 2 0 01-2 2H7a2 2 0 01-2-2v-2a2 2 0 010-4V7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="Siti affidabili per visite 🎟️" data-en="Trusted ticket sites 🎟️">Siti affidabili per visite 🎟️</h3>
                 </button>
 
                 <!-- Contatti Utili -->
@@ -245,25 +256,32 @@ var data = {
             btn: "Pianifica Percorso",
             url: "https://moovitapp.com/index/it/mezzi_pubblici-Via_Macerata-Roma_e_Lazio-site_18498159-301"
         },
-        attr: { 
-            t: "🗺️ Itinerario Roma - Cosa Vedere", 
-            txt: "Una selezione dei luoghi più iconici e suggestivi di Roma, perfetti per costruire il tuo itinerario giornaliero.\n\nCliccando sui link potrai aprire direttamente la posizione su Google Maps.\n\n━━━━━━━━━━━━━━━━━━━━━━",
+
+        /* ✅ Itinerario ora SOLO testo (senza links) */
+        attr: {
+            t: "🗺️ Luoghi da Visitare a Roma",
+            txt: "Ecco alcuni dei luoghi più iconici da visitare a Roma:\n\n🏛️ Colosseo & Foro Romano\n👑 Altare della Patria & Piazza Venezia\n✨ Fontana di Trevi\n🛍️ Piazza di Spagna & Trinità dei Monti\n⛪ Pantheon\n🎭 Piazza Navona\n🏰 Castel Sant'Angelo\n⛪ Basilica di San Pietro & Vaticano\n🌿 Villa Borghese\n🌉 Trastevere & Isola Tiberina\n\nConsiglio: prenota in anticipo per evitare code!"
+        },
+
+        /* ✅ NUOVO: siti affidabili per visite */
+        tickets: {
+            t: "🎟️ Siti Affidabili per Visite",
+            txt: "Per acquistare biglietti e prenotare visite in modo sicuro, usa questi siti affidabili:\n\n• Musei Vaticani (sito ufficiale)\n• CoopCulture / Colosseo (canale ufficiale area archeologica)\n• GetYourGuide (piattaforma nota)\n• Tiqets (piattaforma nota)\n• TicketOne (eventi e mostre)\n\nClicca qui sotto per aprirli:",
             links: [
-                { n: "🏛️ 1. Colosseo & Foro Romano", u: "https://maps.app.goo.gl/4jwgRR2L2jWzM4waA", d: "Il simbolo di Roma. Puoi visitare il Colosseo, poi scendere nella valle del Foro Romano e salire sul Palatino." },
-                { n: "👑 2. Altare della Patria & Piazza Venezia", u: "https://maps.app.goo.gl/CLjn9nK3UH1yLdUBA", d: "Il \"Vittoriano\" è uno dei monumenti più imponenti della città, con terrazza panoramica." },
-                { n: "✨ 3. Fontana di Trevi", u: "https://maps.app.goo.gl/FDbe8A5Sn6acYU7T9", d: "La fontana più famosa al mondo. Imperdibile." },
-                { n: "🛍️ 4. Piazza di Spagna & Trinità dei Monti", u: "https://maps.app.goo.gl/SpagnaRoma", d: "La scalinata più celebre di Roma, cuore dello shopping." },
-                { n: "⛪ 5. Pantheon", u: "https://maps.app.goo.gl/PantheonRoma", d: "Il tempio romano meglio conservato, con la sua cupola mozzafiato." },
-                { n: "🎭 6. Piazza Navona", u: "https://maps.app.goo.gl/NavonaRoma", d: "La piazza barocca più bella di Roma con le fontane del Bernini." },
-                { n: "🏰 7. Castel Sant'Angelo", u: "https://maps.app.goo.gl/CastelSantAngelo", d: "Mausoleo imperiale e fortezza papale con vista sul Tevere." },
-                { n: "⛪ 8. Basilica di San Pietro & Vaticano", u: "https://maps.app.goo.gl/VaticanoRoma", d: "Il cuore della cristianità con la Cappella Sistina e i Musei Vaticani." }
+                { n: "Musei Vaticani (Official)", u: "https://tickets.museivaticani.va/home", d: "Biglietti ufficiali Musei Vaticani" },
+                { n: "Colosseo / Area archeologica (Official)", u: "https://ecm.coopculture.it/", d: "Canale ufficiale prenotazioni (CoopCulture)" },
+                { n: "GetYourGuide", u: "https://www.getyourguide.com/rome-l33/", d: "Tour e biglietti (affidabile)" },
+                { n: "Tiqets", u: "https://www.tiqets.com/it/roma-biglietti-l145781/", d: "Biglietti digitali (affidabile)" },
+                { n: "TicketOne", u: "https://www.ticketone.it/", d: "Eventi, mostre, spettacoli" }
             ]
         },
+
         cont: { 
             t: "📞 Contatti Utili", 
             txt: "CONTATTO PROPRIETÀ\n+39 389 3182117\n\nEMERGENZE\n- Emergenza Generale: 112\n- Polizia: 113\n- Vigili del Fuoco: 115\n- Ambulanza: 118\n\nTAXI\n- Radio Taxi: +39 06 3570\n- Taxi Roma: +39 06 6645\n\nGUARDIA MEDICA\n- Numero verde: 800 118 000\n\nPer qualsiasi necessità, contattaci sempre!" 
         }
     },
+
     en: {
         tutorial: { 
             t: "🎬 Tutorial", 
@@ -305,20 +323,26 @@ var data = {
             btn: "Plan Your Route",
             url: "https://moovitapp.com/index/en/public_transit-Via_Macerata-Rome_and_Lazio-site_18498159-301"
         },
-        attr: { 
-            t: "🗺️ Rome Itinerary - What to See", 
-            txt: "A selection of the most iconic and scenic places in Rome, perfect for building your daily itinerary.\n\nClick on the links to open the location directly on Google Maps.\n\n━━━━━━━━━━━━━━━━━━━━━━",
+
+        /* ✅ Places: only text */
+        attr: {
+            t: "🗺️ Places to Visit in Rome",
+            txt: "Here are some iconic places to visit in Rome:\n\n🏛️ Colosseum & Roman Forum\n👑 Altare della Patria & Piazza Venezia\n✨ Trevi Fountain\n🛍️ Spanish Steps & Trinità dei Monti\n⛪ Pantheon\n🎭 Piazza Navona\n🏰 Castel Sant'Angelo\n⛪ St. Peter's Basilica & Vatican\n🌿 Villa Borghese\n🌉 Trastevere & Tiber Island\n\nTip: book in advance to skip the lines!"
+        },
+
+        /* ✅ New: trusted ticket sites */
+        tickets: {
+            t: "🎟️ Trusted Ticket Sites",
+            txt: "To safely buy tickets and book visits, use these trusted websites:\n\n• Vatican Museums (official)\n• CoopCulture / Colosseum (official channel)\n• GetYourGuide\n• Tiqets\n• TicketOne\n\nTap below to open:",
             links: [
-                { n: "🏛️ 1. Colosseum & Roman Forum", u: "https://maps.app.goo.gl/4jwgRR2L2jWzM4waA", d: "The symbol of Rome. Visit the Colosseum, then descend into the Roman Forum valley and climb the Palatine." },
-                { n: "👑 2. Altare della Patria & Piazza Venezia", u: "https://maps.app.goo.gl/CLjn9nK3UH1yLdUBA", d: "The \"Vittoriano\" is one of the most imposing monuments in the city, with a panoramic terrace." },
-                { n: "✨ 3. Trevi Fountain", u: "https://maps.app.goo.gl/FDbe8A5Sn6acYU7T9", d: "The most famous fountain in the world. A must-see." },
-                { n: "🛍️ 4. Spanish Steps & Trinità dei Monti", u: "https://maps.app.goo.gl/SpagnaRoma", d: "Rome's most famous staircase, heart of shopping." },
-                { n: "⛪ 5. Pantheon", u: "https://maps.app.goo.gl/PantheonRoma", d: "The best preserved Roman temple, with its breathtaking dome." },
-                { n: "🎭 6. Piazza Navona", u: "https://maps.app.goo.gl/NavonaRoma", d: "Rome's most beautiful baroque square with Bernini's fountains." },
-                { n: "🏰 7. Castel Sant'Angelo", u: "https://maps.app.goo.gl/CastelSantAngelo", d: "Imperial mausoleum and papal fortress with views over the Tiber." },
-                { n: "⛪ 8. St. Peter's Basilica & Vatican", u: "https://maps.app.goo.gl/VaticanoRoma", d: "The heart of Christianity with the Sistine Chapel and Vatican Museums." }
+                { n: "Vatican Museums (Official)", u: "https://tickets.museivaticani.va/home", d: "Official Vatican Museums tickets" },
+                { n: "Colosseum / Archaeological area (Official)", u: "https://ecm.coopculture.it/", d: "Official booking channel (CoopCulture)" },
+                { n: "GetYourGuide", u: "https://www.getyourguide.com/rome-l33/", d: "Tours & tickets (trusted)" },
+                { n: "Tiqets", u: "https://www.tiqets.com/rome-attractions-c71631/", d: "Digital tickets (trusted)" },
+                { n: "TicketOne", u: "https://www.ticketone.it/", d: "Events, exhibitions, shows" }
             ]
         },
+
         cont: { 
             t: "📞 Useful Contacts", 
             txt: "PROPERTY CONTACT\n+39 389 3182117\n\nEMERGENCIES\n- General Emergency: 112\n- Police: 113\n- Fire Department: 115\n- Ambulance: 118\n\nTAXI\n- Radio Taxi: +39 06 3570\n- Taxi Roma: +39 06 6645\n\nMEDICAL GUARD\n- Toll-free: 800 118 000\n\nFor any need, always contact us!" 
@@ -407,7 +431,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     closeModalBtn.addEventListener('click', closeModal);
 
-    /* ✅ FIX CLICK: event delegation */
     document.addEventListener('click', function(e) {
         var btn = e.target.closest('.modal-btn');
         if (!btn) return;
