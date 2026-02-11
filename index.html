@@ -214,13 +214,45 @@
     </div>
 
 <script>
-var data = {
-    it: {
-        tutorial: { 
-            t: "🎬 Tutorial", 
-            txt: "Guarda qui il video per scoprire come funziona l'appartamento!",
-            btn: "Guarda il Video",
-            url: "https://youtube.com/shorts/RiZ7aOi_c-8?si=DlMCgbr4CGudQM9e"
+<script>
+    let lang = 'it';
+
+    // ✅ VIDEO TUTORIAL (metti qui i tuoi link DIRETTI .mp4)
+    // Tu mi hai detto che hai questi 5 video:
+    // 1) Caldaia EN
+    // 2) Termosifoni IT
+    // 3) Salta la luce IT
+    // 4) Caldaia IT
+    // 5) Salta la luce EN
+    //
+    // → quindi qui sotto li separiamo per lingua:
+    const tutorialVideos = {
+      it: {
+        light:   './luce-it.mp4',
+        boiler:  './caldaia-it.mp4',
+        heating: './termosifone-it.mp4'
+      },
+      en: {
+        light:   './luce-en.mp4',
+        boiler:  './caldaia-en.mp4',
+        heating: './termosifone-en.mp4'
+      }
+    };
+
+    function setTutorialVideo(key) {
+      const video = document.getElementById('tutorialVideo');
+      const srcEl = document.getElementById('tutorialVideoSrc');
+      if (!video || !srcEl) return;
+
+      // prendo il video della lingua corrente, se manca faccio fallback su IT
+      const url =
+        (tutorialVideos[lang] && tutorialVideos[lang][key]) ||
+        (tutorialVideos.it && tutorialVideos.it[key]) ||
+        '';
+
+      srcEl.src = url;
+      video.load();
+      video.play().catch(() => {});
         },
         apt: { 
             t: "🏠 GN Suite Garden", 
