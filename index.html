@@ -111,6 +111,17 @@
           <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="Appartamento 🏠" data-en="Apartment 🏠">Appartamento 🏠</h3>
         </button>
 
+        <!-- Chef a Casa Tua -->
+        <button data-modal="chef" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
+          <div class="bg-pink-600 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 13h18M3 13a9 9 0 0118 0M3 13H2m19 0h1M12 4v1m0 0a8 8 0 018 8M12 5a8 8 0 00-8 8m8-8V4M5 21h14"></path>
+            </svg>
+          </div>
+          <h3 class="txt text-gray-800 font-semibold text-center text-sm md:text-base" data-it="Chef a Casa Tua 👨‍🍳✨" data-en="Private Chef 👨‍🍳✨">Chef a Casa Tua 👨‍🍳✨</h3>
+        </button>
+
         <!-- Tutorial -->
         <button data-modal="tut" class="modal-btn bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex flex-col items-center justify-center group">
           <div class="bg-red-500 w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -236,7 +247,6 @@
   <script>
     let lang = 'it';
 
-    // ✅ video (files in repo root)
     const tutorialVideos = {
       it: {
         light: './luce-in-garden.mp4',
@@ -252,180 +262,121 @@
       const video = document.getElementById('tutorialVideo');
       const srcEl = document.getElementById('tutorialVideoSrc');
       if (!video || !srcEl) return;
-
-      const url =
-        (tutorialVideos[lang] && tutorialVideos[lang][key]) ||
-        (tutorialVideos.it && tutorialVideos.it[key]) ||
-        '';
-
+      const url = (tutorialVideos[lang] && tutorialVideos[lang][key]) || (tutorialVideos.it && tutorialVideos.it[key]) || '';
       srcEl.src = url;
       video.load();
       video.play().catch(() => {});
     }
 
+    const chefHtml = {
+      it: `
+        <div class="space-y-5 text-gray-700">
+          <div class="rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);">
+            <div class="p-6 text-center">
+              <div class="text-3xl mb-2">🍽️</div>
+              <div class="text-2xl font-bold text-white mb-1">CHIAMA LO CHEF</div>
+              <div class="text-pink-300 italic text-sm">Private fine dining, redefined.</div>
+            </div>
+          </div>
+          <div class="bg-gray-50 border border-gray-200 rounded-2xl p-5">
+            <div class="text-lg font-bold text-gray-800 mb-2">✨ Un'esperienza di fine dining privata</div>
+            <p class="text-gray-600 leading-relaxed text-sm">Portiamo il fine dining direttamente a casa tua, creando un evento culinario esclusivo e intimo. <span class="font-semibold text-gray-800">Tu ospiti. Noi orchestriamo la perfezione.</span></p>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-white border border-gray-200 rounded-xl p-3 text-center shadow-sm"><div class="text-xl mb-1">👨‍🍳</div><div class="text-xs font-semibold text-gray-700">Chef Privato</div></div>
+            <div class="bg-white border border-gray-200 rounded-xl p-3 text-center shadow-sm"><div class="text-xl mb-1">👩‍💼</div><div class="text-xs font-semibold text-gray-700">Maître Professionista</div></div>
+            <div class="bg-white border border-gray-200 rounded-xl p-3 text-center shadow-sm"><div class="text-xl mb-1">🍷</div><div class="text-xs font-semibold text-gray-700">Selezione Vini Curata</div></div>
+            <div class="bg-white border border-gray-200 rounded-xl p-3 text-center shadow-sm"><div class="text-xl mb-1">🍽️</div><div class="text-xs font-semibold text-gray-700">Menu Degustazione su Misura</div></div>
+          </div>
+          <div class="bg-white border-2 border-gray-200 rounded-2xl p-4">
+            <div class="font-bold text-gray-800 mb-3">🥂 Eleganza a servizio completo</div>
+            <div class="grid grid-cols-2 gap-2 text-sm text-gray-600">
+              <div class="flex items-center gap-2"><span class="text-green-500 font-bold">✔️</span> Mise en place raffinata</div>
+              <div class="flex items-center gap-2"><span class="text-green-500 font-bold">✔️</span> Attrezzatura professionale</div>
+              <div class="flex items-center gap-2"><span class="text-green-500 font-bold">✔️</span> Servizio di sala impeccabile</div>
+              <div class="flex items-center gap-2"><span class="text-green-500 font-bold">✔️</span> Pulizia finale inclusa</div>
+            </div>
+            <p class="text-sm text-gray-500 mt-3 italic leading-relaxed">Ogni portata viene presentata e guidata dal nostro maître, elevando l'intera esperienza attraverso cura dei dettagli e abbinamenti vini.</p>
+          </div>
+          <div class="rounded-xl p-4 text-center" style="background: linear-gradient(135deg, #1a1a2e, #0f3460);">
+            <div class="text-white font-bold mb-1">📲 Prenota la tua esperienza di cena privata</div>
+            <div class="text-pink-300 italic text-sm">Disponibilità limitata — prenotazione anticipata richiesta.</div>
+          </div>
+          <a href="mailto:chiamalochef@gmail.com?cc=immobiliaregn@gmail.com&subject=Richiesta%20Chef%20a%20Casa%20-%20GN%20Suite%20Garden&body=Salve%2C%0A%0ASono%20attualmente%20ospite%20presso%20GN%20Suite%20Garden%20e%20sono%20interessato%2Fa%20al%20servizio%20Chef%20a%20Casa.%0A%0APotreste%20inviarmi%20informazioni%20riguardo%3A%0A%0A-%20Disponibilit%C3%A0%20delle%20date%0A-%20Menu%20e%20proposte%20disponibili%0A-%20Prezzi%20e%20pacchetti%0A%0AResto%20in%20attesa%20di%20una%20vostra%20risposta.%0A%0AGrazie%20mille%2C%0A%5BNome%20e%20Cognome%5D%0A%5BNumero%20di%20telefono%5D"
+            class="flex items-center justify-center gap-2 w-full py-4 rounded-xl font-bold text-white shadow-lg transition-all hover:opacity-90 active:scale-95"
+            style="background: linear-gradient(135deg, #be185d, #9d174d);">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            Invia Email ✉️
+          </a>
+        </div>`,
+      en: `
+        <div class="space-y-5 text-gray-700">
+          <div class="rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);">
+            <div class="p-6 text-center">
+              <div class="text-3xl mb-2">🍽️</div>
+              <div class="text-2xl font-bold text-white mb-1">PRIVATE CHEF</div>
+              <div class="text-pink-300 italic text-sm">Private fine dining, redefined.</div>
+            </div>
+          </div>
+          <div class="bg-gray-50 border border-gray-200 rounded-2xl p-5">
+            <div class="text-lg font-bold text-gray-800 mb-2">✨ A refined private dining experience</div>
+            <p class="text-gray-600 leading-relaxed text-sm">We bring fine dining directly to your home, creating an exclusive and intimate culinary event. <span class="font-semibold text-gray-800">You host. We orchestrate perfection.</span></p>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-white border border-gray-200 rounded-xl p-3 text-center shadow-sm"><div class="text-xl mb-1">👨‍🍳</div><div class="text-xs font-semibold text-gray-700">Private Chef</div></div>
+            <div class="bg-white border border-gray-200 rounded-xl p-3 text-center shadow-sm"><div class="text-xl mb-1">👩‍💼</div><div class="text-xs font-semibold text-gray-700">Professional Maître d'</div></div>
+            <div class="bg-white border border-gray-200 rounded-xl p-3 text-center shadow-sm"><div class="text-xl mb-1">🍷</div><div class="text-xs font-semibold text-gray-700">Curated Wine Selection</div></div>
+            <div class="bg-white border border-gray-200 rounded-xl p-3 text-center shadow-sm"><div class="text-xl mb-1">🍽️</div><div class="text-xs font-semibold text-gray-700">Bespoke Tasting Menus</div></div>
+          </div>
+          <div class="bg-white border-2 border-gray-200 rounded-2xl p-4">
+            <div class="font-bold text-gray-800 mb-3">🥂 Full-service elegance</div>
+            <div class="grid grid-cols-2 gap-2 text-sm text-gray-600">
+              <div class="flex items-center gap-2"><span class="text-green-500 font-bold">✔️</span> Refined table setting</div>
+              <div class="flex items-center gap-2"><span class="text-green-500 font-bold">✔️</span> Professional equipment</div>
+              <div class="flex items-center gap-2"><span class="text-green-500 font-bold">✔️</span> Impeccable table service</div>
+              <div class="flex items-center gap-2"><span class="text-green-500 font-bold">✔️</span> Final cleaning included</div>
+            </div>
+            <p class="text-sm text-gray-500 mt-3 italic leading-relaxed">Each course is presented and guided by our maître, elevating the entire experience through attention to detail and wine pairing expertise.</p>
+          </div>
+          <div class="rounded-xl p-4 text-center" style="background: linear-gradient(135deg, #1a1a2e, #0f3460);">
+            <div class="text-white font-bold mb-1">📲 Reserve your private dining experience</div>
+            <div class="text-pink-300 italic text-sm">Limited availability — advance booking required.</div>
+          </div>
+          <a href="mailto:chiamalochef@gmail.com?cc=immobiliaregn@gmail.com&subject=Private%20Chef%20Request%20-%20GN%20Suite%20Garden&body=Hello%2C%0A%0AI%20am%20currently%20staying%20at%20GN%20Suite%20Garden%20and%20I%20am%20interested%20in%20the%20Private%20Chef%20experience.%0A%0ACould%20you%20please%20send%20me%20information%20about%3A%0A%0A-%20Available%20dates%0A-%20Menu%20options%20and%20proposals%0A-%20Pricing%20and%20packages%0A%0AI%20look%20forward%20to%20hearing%20from%20you.%0A%0AThank%20you%2C%0A%5BName%20and%20Surname%5D%0A%5BPhone%20number%5D"
+            class="flex items-center justify-center gap-2 w-full py-4 rounded-xl font-bold text-white shadow-lg transition-all hover:opacity-90 active:scale-95"
+            style="background: linear-gradient(135deg, #be185d, #9d174d);">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            Send Email ✉️
+          </a>
+        </div>`
+    };
+
     const data = {
       it: {
-        apt: {
-          t: "🏠 GN Suite Garden",
-          txt: "Posizione: Via Macerata 81, Roma\n\nMetri quadri: 39 + 30 con giardino.\n1 cucina, 1 bagno e 2 posti letto.\n\nWiFi: Gnsuitegarden\nPassword: 17042024\n\nGN Suite Garden è uno spazio curato, moderno e confortevole, perfetto per rilassarti dopo una giornata trascorsa a esplorare Roma.\n\nLa zona è tranquilla, ben collegata e ricca di servizi a pochi passi.\n\nSentiti come a casa — e se hai bisogno di qualsiasi cosa, siamo sempre disponibili!"
-        },
-        tut: {
-          t: "🎬 Tutorial",
-          html: `
-            <div class="space-y-4">
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <button onclick="setTutorialVideo('light')" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl shadow">
-                  Se scatta la luce 💡
-                </button>
-                <button onclick="setTutorialVideo('boiler')" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl shadow">
-                  Se la caldaia non va 🔥
-                </button>
-              </div>
-
-              <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-black">
-                <video id="tutorialVideo" class="w-full" controls playsinline>
-                  <source id="tutorialVideoSrc" src="" type="video/mp4" />
-                  Il tuo browser non supporta il tag video.
-                </video>
-              </div>
-
-              <div class="text-gray-600 text-sm">
-                Suggerimento: se il video non parte, prova a ricaricare la pagina o a cambiare rete.
-              </div>
-            </div>
-          `
-        },
-        cin: {
-          t: "🕐 Check-in",
-          txt: "Benvenuti a GN Suite Garden!\n\nPer completare il check-in, clicca sul pulsante e compila il modulo.\n\nContatto:\n+39 389 3182117\n\nIn caso di problemi o ritardi, contattateci!",
-          btn: "Compila Modulo Check-in",
-          url: "https://docs.google.com/forms/d/e/1FAIpQLSe1E4FbX-ynNWTetgr4PFvtx8ownNgcc4AoNn6SmHXM-jlh0g/viewform"
-        },
-        cout: {
-          t: "🚪 Check-out",
-          txt: "Prima di partire, ti chiediamo di:\n\n- Chiudere finestre e porte\n- Spegnere luci e climatizzazione\n- Lasciare la casa in ordine\n- Non lasciare rifiuti in casa\n\nHai bisogno di posticipare il check-out o hai dimenticato qualcosa?\n\nCompila il modulo o contattaci:\n+39 389 3182117\n\nSperiamo di rivederti presto!",
-          btn: "Compila Modulo Check-out",
-          url: "https://docs.google.com/forms/d/e/1FAIpQLSdSXEtWCGp0ZCN8UOZttVPgkS_yb77UrE8kMjQ_q0vwo7ln7g/viewform"
-        },
-        rules: {
-          t: "🏡 Regole della Casa",
-          txt: "Per garantire un soggiorno piacevole a te e ai vicini:\n\n1. 🔇 Silenzio dopo le 22:00\n\n2. 🚭 Non fumare all'interno dell'appartamento\n\n3. 👥 Ospiti esterni non ammessi senza autorizzazione\n\n4. 🛋️ Usa con cura mobili ed elettrodomestici\n\n5. 🗑️ Ti chiediamo di non lasciare rifiuti in casa al check-out\n\n6. 🏢 Rispetta gli spazi comuni del palazzo\n\nGrazie per la collaborazione!"
-        },
-        rest: {
-          t: "🍽️ Ristoranti Consigliati",
-          txt: "Ecco alcuni locali / ristoranti vicini:\n\n━━━━━━━━━━━━━━━━━━━━━━\nRISTORANTI\n━━━━━━━━━━━━━━━━━━━━━━\n\n🍝 Dar Parucca\nRistorante romano — accanto Gn Suite\n\n🍝 Magnebevo e sto ar Pigneto\nRistorante romano — accanto Gn Suite\n\n🌍 Mrgda Ristorante\nCucina etiope/eritrea — ≈ 650-700 m\n\n🥩 Mr Manzo Griglieria\nGriglieria / carne — ≈ 700-750 m\n\n🇵🇪 Quipu - Cucina Peruviana\nInternazionale / alternativa — ≈ 780 m\n\n🍝 Necci dal 19124\nCucina Romana — ≈ 600 m / 9 min a piedi\n\n━━━━━━━━━━━━━━━━━━━━━━\nENOTECHE / PUB\n━━━━━━━━━━━━━━━━━━━━━━\n\n🍷 Enoteca Di Via Macerata Roma\n\n🍺 Kram Pigneto",
-          links: [
-            { n: "Enoteca Di Via Macerata", u: "https://maps.app.goo.gl/xSDMWvq6K4xPhPsM7", d: "Vedi su Google Maps" },
-            { n: "Kram Pigneto", u: "https://maps.app.goo.gl/1ZW5G9SwTKYV3dvW6", d: "Vedi su Google Maps" }
-          ]
-        },
-        trans: {
-          t: "🚇 Trasporti Pubblici",
-          txt: "FERMATE VICINE A VIA MACERATA 81\n\n🚇 Stazione Pigneto (Metro linea C)\nMetropolitana — ~ 4 min a piedi\n\n🚌 P.le Prenestino (bus/tram/ATAC)\nBus / tram / autobus — ~ 3-4 min a piedi\n\n🚌 Fermata Aquila (bus)\nAutobus — ~ 4 min a piedi\n\n🚂 Fermata Sant'Elena (ferrovia urbana)\nTreno urbano / ferrovia locale — ~ 4 min a piedi\n\n🚌 Prenestina/Officine ATAC (bus/tram)\nBus / tram — ~ 5 min a piedi\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nLinee di bus/tram attive: 105, 81, 14BUS, 412 (e altre)\n\nBiglietto: €1,50\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nTAXI\nTel: +39 06 3570 / +39 06 6645\n\nDAGLI AEROPORTI\nDa Fiumicino: Leonardo Express → Termini (~€14) o Taxi (~€50)\nDa Ciampino: Bus navetta → Termini o Taxi (~€35)",
-          btn: "Pianifica Percorso",
-          url: "https://moovitapp.com/index/it/mezzi_pubblici-Via_Macerata-Roma_e_Lazio-site_18498159-301"
-        },
-        attr: {
-          t: "🗺️ Luoghi da Visitare a Roma",
-          txt: "Ecco alcuni dei luoghi più iconici da visitare a Roma:\n\n🏛️ Colosseo & Foro Romano\n👑 Altare della Patria & Piazza Venezia\n✨ Fontana di Trevi\n🛍️ Piazza di Spagna & Trinità dei Monti\n⛪ Pantheon\n🎭 Piazza Navona\n🏰 Castel Sant'Angelo\n⛪ Basilica di San Pietro & Vaticano\n🌿 Villa Borghese\n🌉 Trastevere & Isola Tiberina\n\nConsiglio: prenota in anticipo per evitare code!"
-        },
-        tickets: {
-          t: "🎟️ Siti Affidabili per Visite",
-          txt: "Per acquistare biglietti e prenotare visite in modo sicuro, usa questi siti affidabili:",
-          links: [
-            { n: "Musei Vaticani (Official)", u: "https://tickets.museivaticani.va/home", d: "Biglietti ufficiali Musei Vaticani" },
-            { n: "CoopCulture (Official)", u: "https://ecm.coopculture.it/", d: "Prenotazioni canale ufficiale" },
-            { n: "GetYourGuide", u: "https://www.getyourguide.com/rome-l33/", d: "Tour e biglietti" },
-            { n: "Tiqets", u: "https://www.tiqets.com/it/roma-biglietti-l145781/", d: "Biglietti digitali" },
-            { n: "TicketOne", u: "https://www.ticketone.it/", d: "Eventi, mostre, spettacoli" }
-          ]
-        },
-        cont: {
-          t: "📞 Contatti Utili",
-          txt: "CONTATTO PROPRIETÀ\n+39 389 3182117\n\nEMERGENZE\n- Emergenza Generale: 112\n- Polizia: 113\n- Vigili del Fuoco: 115\n- Ambulanza: 118\n\nTAXI\n- Radio Taxi: +39 06 3570\n- Taxi Roma: +39 06 6645\n\nGUARDIA MEDICA\n- Numero verde: 800 118 000\n\nPer qualsiasi necessità, contattaci sempre!"
-        }
+        apt: { t: "🏠 GN Suite Garden", txt: "Posizione: Via Macerata 81, Roma\n\nMetri quadri: 39 + 30 con giardino.\n1 cucina, 1 bagno e 2 posti letto.\n\nWiFi: Gnsuitegarden\nPassword: 17042024\n\nGN Suite Garden è uno spazio curato, moderno e confortevole, perfetto per rilassarti dopo una giornata trascorsa a esplorare Roma.\n\nLa zona è tranquilla, ben collegata e ricca di servizi a pochi passi.\n\nSentiti come a casa — e se hai bisogno di qualsiasi cosa, siamo sempre disponibili!" },
+        chef: { t: '🍽️ Chiama lo Chef', html: chefHtml.it },
+        tut: { t: "🎬 Tutorial", html: `<div class="space-y-4"><div class="grid grid-cols-1 md:grid-cols-3 gap-3"><button onclick="setTutorialVideo('light')" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl shadow">Se scatta la luce 💡</button><button onclick="setTutorialVideo('boiler')" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl shadow">Se la caldaia non va 🔥</button></div><div class="rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-black"><video id="tutorialVideo" class="w-full" controls playsinline><source id="tutorialVideoSrc" src="" type="video/mp4" />Il tuo browser non supporta il tag video.</video></div><div class="text-gray-600 text-sm">Suggerimento: se il video non parte, prova a ricaricare la pagina o a cambiare rete.</div></div>` },
+        cin: { t: "🕐 Check-in", txt: "Benvenuti a GN Suite Garden!\n\nPer completare il check-in, clicca sul pulsante e compila il modulo.\n\nContatto:\n+39 389 3182117\n\nIn caso di problemi o ritardi, contattateci!", btn: "Compila Modulo Check-in", url: "https://docs.google.com/forms/d/e/1FAIpQLSe1E4FbX-ynNWTetgr4PFvtx8ownNgcc4AoNn6SmHXM-jlh0g/viewform" },
+        cout: { t: "🚪 Check-out", txt: "Prima di partire, ti chiediamo di:\n\n- Chiudere finestre e porte\n- Spegnere luci e climatizzazione\n- Lasciare la casa in ordine\n- Non lasciare rifiuti in casa\n\nHai bisogno di posticipare il check-out o hai dimenticato qualcosa?\n\nCompila il modulo o contattaci:\n+39 389 3182117\n\nSperiamo di rivederti presto!", btn: "Compila Modulo Check-out", url: "https://docs.google.com/forms/d/e/1FAIpQLSdSXEtWCGp0ZCN8UOZttVPgkS_yb77UrE8kMjQ_q0vwo7ln7g/viewform" },
+        rules: { t: "🏡 Regole della Casa", txt: "Per garantire un soggiorno piacevole a te e ai vicini:\n\n1. 🔇 Silenzio dopo le 22:00\n\n2. 🚭 Non fumare all'interno dell'appartamento\n\n3. 👥 Ospiti esterni non ammessi senza autorizzazione\n\n4. 🛋️ Usa con cura mobili ed elettrodomestici\n\n5. 🗑️ Ti chiediamo di non lasciare rifiuti in casa al check-out\n\n6. 🏢 Rispetta gli spazi comuni del palazzo\n\nGrazie per la collaborazione!" },
+        rest: { t: "🍽️ Ristoranti Consigliati", txt: "Ecco alcuni locali / ristoranti vicini:\n\n━━━━━━━━━━━━━━━━━━━━━━\nRISTORANTI\n━━━━━━━━━━━━━━━━━━━━━━\n\n🍝 Dar Parucca\nRistorante romano — accanto Gn Suite\n\n🍝 Magnebevo e sto ar Pigneto\nRistorante romano — accanto Gn Suite\n\n🌍 Mrgda Ristorante\nCucina etiope/eritrea — ≈ 650-700 m\n\n🥩 Mr Manzo Griglieria\nGriglieria / carne — ≈ 700-750 m\n\n🇵🇪 Quipu - Cucina Peruviana\nInternazionale / alternativa — ≈ 780 m\n\n🍝 Necci dal 19124\nCucina Romana — ≈ 600 m / 9 min a piedi\n\n━━━━━━━━━━━━━━━━━━━━━━\nENOTECHE / PUB\n━━━━━━━━━━━━━━━━━━━━━━\n\n🍷 Enoteca Di Via Macerata Roma\n\n🍺 Kram Pigneto", links: [{ n: "Enoteca Di Via Macerata", u: "https://maps.app.goo.gl/xSDMWvq6K4xPhPsM7", d: "Vedi su Google Maps" }, { n: "Kram Pigneto", u: "https://maps.app.goo.gl/1ZW5G9SwTKYV3dvW6", d: "Vedi su Google Maps" }] },
+        trans: { t: "🚇 Trasporti Pubblici", txt: "FERMATE VICINE A VIA MACERATA 81\n\n🚇 Stazione Pigneto (Metro linea C)\nMetropolitana — ~ 4 min a piedi\n\n🚌 P.le Prenestino (bus/tram/ATAC)\nBus / tram / autobus — ~ 3-4 min a piedi\n\n🚌 Fermata Aquila (bus)\nAutobus — ~ 4 min a piedi\n\n🚂 Fermata Sant'Elena (ferrovia urbana)\nTreno urbano / ferrovia locale — ~ 4 min a piedi\n\n🚌 Prenestina/Officine ATAC (bus/tram)\nBus / tram — ~ 5 min a piedi\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nLinee di bus/tram attive: 105, 81, 14BUS, 412 (e altre)\n\nBiglietto: €1,50\n\n━━━━━━━━━━━━━━━━━━━━━━\n\nTAXI\nTel: +39 06 3570 / +39 06 6645\n\nDAGLI AEROPORTI\nDa Fiumicino: Leonardo Express → Termini (~€14) o Taxi (~€50)\nDa Ciampino: Bus navetta → Termini o Taxi (~€35)", btn: "Pianifica Percorso", url: "https://moovitapp.com/index/it/mezzi_pubblici-Via_Macerata-Roma_e_Lazio-site_18498159-301" },
+        attr: { t: "🗺️ Luoghi da Visitare a Roma", txt: "Ecco alcuni dei luoghi più iconici da visitare a Roma:\n\n🏛️ Colosseo & Foro Romano\n👑 Altare della Patria & Piazza Venezia\n✨ Fontana di Trevi\n🛍️ Piazza di Spagna & Trinità dei Monti\n⛪ Pantheon\n🎭 Piazza Navona\n🏰 Castel Sant'Angelo\n⛪ Basilica di San Pietro & Vaticano\n🌿 Villa Borghese\n🌉 Trastevere & Isola Tiberina\n\nConsiglio: prenota in anticipo per evitare code!" },
+        tickets: { t: "🎟️ Siti Affidabili per Visite", txt: "Per acquistare biglietti e prenotare visite in modo sicuro, usa questi siti affidabili:", links: [{ n: "Musei Vaticani (Official)", u: "https://tickets.museivaticani.va/home", d: "Biglietti ufficiali Musei Vaticani" }, { n: "CoopCulture (Official)", u: "https://ecm.coopculture.it/", d: "Prenotazioni canale ufficiale" }, { n: "GetYourGuide", u: "https://www.getyourguide.com/rome-l33/", d: "Tour e biglietti" }, { n: "Tiqets", u: "https://www.tiqets.com/it/roma-biglietti-l145781/", d: "Biglietti digitali" }, { n: "TicketOne", u: "https://www.ticketone.it/", d: "Eventi, mostre, spettacoli" }] },
+        cont: { t: "📞 Contatti Utili", txt: "CONTATTO PROPRIETÀ\n+39 389 3182117\n\nEMERGENZE\n- Emergenza Generale: 112\n- Polizia: 113\n- Vigili del Fuoco: 115\n- Ambulanza: 118\n\nTAXI\n- Radio Taxi: +39 06 3570\n- Taxi Roma: +39 06 6645\n\nGUARDIA MEDICA\n- Numero verde: 800 118 000\n\nPer qualsiasi necessità, contattaci sempre!" }
       },
-
       en: {
-        apt: {
-          t: "🏠 GN Suite Garden",
-          txt: "Location: Via Macerata 81, Rome\n\nSize: 39 sqm + 30 sqm garden.\n1 kitchen, 1 bathroom and 2 sleeping places.\n\nWiFi: Gnsuitegarden\nPassword: 17042024\n\nGN Suite Garden is a well-maintained, modern and comfortable space, perfect for relaxing after a day exploring Rome.\n\nThe area is quiet, well-connected and full of services within walking distance.\n\nFeel at home — and if you need anything, we're always available!"
-        },
-        tut: {
-          t: "🎬 Tutorials",
-          html: `
-            <div class="space-y-4">
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <button onclick="setTutorialVideo('light')" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl shadow">
-                  If the power trips 💡
-                </button>
-                <button onclick="setTutorialVideo('boiler')" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl shadow">
-                  If the boiler doesn’t work 🔥
-                </button>
-              </div>
-
-              <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-black">
-                <video id="tutorialVideo" class="w-full" controls playsinline>
-                  <source id="tutorialVideoSrc" src="" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-
-              <div class="text-gray-600 text-sm">
-                Tip: if the video doesn’t play, reload the page or try a different network.
-              </div>
-            </div>
-          `
-        },
-        cin: {
-          t: "🕐 Check-in",
-          txt: "Welcome to GN Suite Garden!\n\nTo complete check-in, click the button and fill out the form.\n\nContact:\n+39 389 3182117\n\nIn case of problems or delays, contact us!",
-          btn: "Fill Check-in Form",
-          url: "https://docs.google.com/forms/d/e/1FAIpQLSe1E4FbX-ynNWTetgr4PFvtx8ownNgcc4AoNn6SmHXM-jlh0g/viewform"
-        },
-        cout: {
-          t: "🚪 Check-out",
-          txt: "Before leaving, please:\n\n- Close windows and doors\n- Turn off lights and air conditioning\n- Leave the house tidy\n- Don't leave trash in the house\n\nNeed to postpone check-out or forgot something?\n\nFill out the form or contact us:\n+39 389 3182117\n\nHope to see you again soon!",
-          btn: "Fill Check-out Form",
-          url: "https://docs.google.com/forms/d/e/1FAIpQLSdSXEtWCGp0ZCN8UOZttVPgkS_yb77UrE8kMjQ_q0vwo7ln7g/viewform"
-        },
-        rules: {
-          t: "🏡 House Rules",
-          txt: "To ensure a pleasant stay for you and the neighbors:\n\n1. 🔇 Quiet time after 10:00 PM\n\n2. 🚭 No smoking inside the apartment\n\n3. 👥 External guests not allowed without authorization\n\n4. 🛋️ Use furniture and appliances with care\n\n5. 🗑️ Please don't leave trash in the house at check-out\n\n6. 🏢 Respect the common areas of the building\n\nThank you for your cooperation!"
-        },
-        rest: {
-          t: "🍽️ Recommended Restaurants",
-          txt: "Here are some nearby restaurants / venues:\n\n(see Italian section for full list)",
-          links: [
-            { n: "Enoteca Di Via Macerata", u: "https://maps.app.goo.gl/xSDMWvq6K4xPhPsM7", d: "View on Google Maps" },
-            { n: "Kram Pigneto", u: "https://maps.app.goo.gl/1ZW5G9SwTKYV3dvW6", d: "View on Google Maps" }
-          ]
-        },
-        trans: {
-          t: "🚇 Public Transportation",
-          txt: "Stops near Via Macerata 81:\n\nPigneto Station (Metro C) ~ 4 min walk\nP.le Prenestino ~ 3-4 min walk\nTicket: €1.50",
-          btn: "Plan Your Route",
-          url: "https://moovitapp.com/index/en/public_transit-Via_Macerata-Rome_and_Lazio-site_18498159-301"
-        },
-        attr: {
-          t: "🗺️ Places to Visit in Rome",
-          txt: "Colosseum, Trevi Fountain, Pantheon, Piazza Navona, Vatican, Trastevere...\n\nTip: book in advance to skip the lines!"
-        },
-        tickets: {
-          t: "🎟️ Trusted Ticket Sites",
-          txt: "Use these trusted websites:",
-          links: [
-            { n: "Vatican Museums (Official)", u: "https://tickets.museivaticani.va/home", d: "Official Vatican Museums tickets" },
-            { n: "CoopCulture (Official)", u: "https://ecm.coopculture.it/", d: "Official booking channel" },
-            { n: "GetYourGuide", u: "https://www.getyourguide.com/rome-l33/", d: "Tours & tickets" },
-            { n: "Tiqets", u: "https://www.tiqets.com/rome-attractions-c71631/", d: "Digital tickets" },
-            { n: "TicketOne", u: "https://www.ticketone.it/", d: "Events, exhibitions, shows" }
-          ]
-        },
-        cont: {
-          t: "📞 Useful Contacts",
-          txt: "PROPERTY CONTACT\n+39 389 3182117\n\nEMERGENCIES\n112 / 113 / 115 / 118\n\nTaxi: +39 06 3570 / +39 06 6645"
-        }
+        apt: { t: "🏠 GN Suite Garden", txt: "Location: Via Macerata 81, Rome\n\nSize: 39 sqm + 30 sqm garden.\n1 kitchen, 1 bathroom and 2 sleeping places.\n\nWiFi: Gnsuitegarden\nPassword: 17042024\n\nGN Suite Garden is a well-maintained, modern and comfortable space, perfect for relaxing after a day exploring Rome.\n\nThe area is quiet, well-connected and full of services within walking distance.\n\nFeel at home — and if you need anything, we're always available!" },
+        chef: { t: '🍽️ Private Chef', html: chefHtml.en },
+        tut: { t: "🎬 Tutorials", html: `<div class="space-y-4"><div class="grid grid-cols-1 md:grid-cols-3 gap-3"><button onclick="setTutorialVideo('light')" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl shadow">If the power trips 💡</button><button onclick="setTutorialVideo('boiler')" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl shadow">If the boiler doesn't work 🔥</button></div><div class="rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-black"><video id="tutorialVideo" class="w-full" controls playsinline><source id="tutorialVideoSrc" src="" type="video/mp4" />Your browser does not support the video tag.</video></div><div class="text-gray-600 text-sm">Tip: if the video doesn't play, reload the page or try a different network.</div></div>` },
+        cin: { t: "🕐 Check-in", txt: "Welcome to GN Suite Garden!\n\nTo complete check-in, click the button and fill out the form.\n\nContact:\n+39 389 3182117\n\nIn case of problems or delays, contact us!", btn: "Fill Check-in Form", url: "https://docs.google.com/forms/d/e/1FAIpQLSe1E4FbX-ynNWTetgr4PFvtx8ownNgcc4AoNn6SmHXM-jlh0g/viewform" },
+        cout: { t: "🚪 Check-out", txt: "Before leaving, please:\n\n- Close windows and doors\n- Turn off lights and air conditioning\n- Leave the house tidy\n- Don't leave trash in the house\n\nNeed to postpone check-out or forgot something?\n\nFill out the form or contact us:\n+39 389 3182117\n\nHope to see you again soon!", btn: "Fill Check-out Form", url: "https://docs.google.com/forms/d/e/1FAIpQLSdSXEtWCGp0ZCN8UOZttVPgkS_yb77UrE8kMjQ_q0vwo7ln7g/viewform" },
+        rules: { t: "🏡 House Rules", txt: "To ensure a pleasant stay for you and the neighbors:\n\n1. 🔇 Quiet time after 10:00 PM\n\n2. 🚭 No smoking inside the apartment\n\n3. 👥 External guests not allowed without authorization\n\n4. 🛋️ Use furniture and appliances with care\n\n5. 🗑️ Please don't leave trash in the house at check-out\n\n6. 🏢 Respect the common areas of the building\n\nThank you for your cooperation!" },
+        rest: { t: "🍽️ Recommended Restaurants", txt: "Here are some nearby restaurants / venues:\n\n(see Italian section for full list)", links: [{ n: "Enoteca Di Via Macerata", u: "https://maps.app.goo.gl/xSDMWvq6K4xPhPsM7", d: "View on Google Maps" }, { n: "Kram Pigneto", u: "https://maps.app.goo.gl/1ZW5G9SwTKYV3dvW6", d: "View on Google Maps" }] },
+        trans: { t: "🚇 Public Transportation", txt: "Stops near Via Macerata 81:\n\nPigneto Station (Metro C) ~ 4 min walk\nP.le Prenestino ~ 3-4 min walk\nTicket: €1.50", btn: "Plan Your Route", url: "https://moovitapp.com/index/en/public_transit-Via_Macerata-Rome_and_Lazio-site_18498159-301" },
+        attr: { t: "🗺️ Places to Visit in Rome", txt: "Colosseum, Trevi Fountain, Pantheon, Piazza Navona, Vatican, Trastevere...\n\nTip: book in advance to skip the lines!" },
+        tickets: { t: "🎟️ Trusted Ticket Sites", txt: "Use these trusted websites:", links: [{ n: "Vatican Museums (Official)", u: "https://tickets.museivaticani.va/home", d: "Official Vatican Museums tickets" }, { n: "CoopCulture (Official)", u: "https://ecm.coopculture.it/", d: "Official booking channel" }, { n: "GetYourGuide", u: "https://www.getyourguide.com/rome-l33/", d: "Tours & tickets" }, { n: "Tiqets", u: "https://www.tiqets.com/rome-attractions-c71631/", d: "Digital tickets" }, { n: "TicketOne", u: "https://www.ticketone.it/", d: "Events, exhibitions, shows" }] },
+        cont: { t: "📞 Useful Contacts", txt: "PROPERTY CONTACT\n+39 389 3182117\n\nEMERGENCIES\n112 / 113 / 115 / 118\n\nTaxi: +39 06 3570 / +39 06 6645" }
       }
     };
 
@@ -453,7 +404,6 @@
       function applyLang(l) {
         lang = l;
 
-        // buttons
         if (l === 'it') {
           btnItIntro.className = 'px-3 py-1 rounded-lg font-semibold transition-all bg-green-600 text-white shadow-lg';
           btnEnIntro.className = 'px-3 py-1 rounded-lg font-semibold transition-all bg-white/90 text-gray-700 hover:bg-white';
@@ -466,7 +416,6 @@
           btnItMain.className = 'px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-white text-gray-600 hover:bg-gray-100';
         }
 
-        // intro texts
         document.getElementById('welcomeSubtitle').textContent = l === 'it' ? 'Benvenuti a GN Suite Garden' : 'Welcome to GN Suite Garden';
         document.getElementById('intro1').textContent = l === 'it'
           ? "Siamo felici di accoglierti nella nostra suite! GN Suite Garden è uno spazio curato, moderno e confortevole, perfetto per rilassarti dopo una giornata trascorsa a esplorare Roma."
@@ -480,12 +429,10 @@
         document.getElementById('startBtn').textContent = l === 'it' ? "Inizia l'Esplorazione 🚀" : 'Start Exploring 🚀';
         document.getElementById('clickInfo').textContent = l === 'it' ? 'Clicca sulle icone per le informazioni 👇📌' : 'Click on the icons for information 👇📌';
 
-        // card titles
         document.querySelectorAll('.txt').forEach(el => {
           el.textContent = el.dataset[l];
         });
 
-        // if tutorial modal is open, keep language video buttons working and reload default video
         if (modal.classList.contains('active')) {
           const currentTitle = modalTitle.textContent || '';
           if (currentTitle.includes('Tutorial')) {
@@ -531,7 +478,6 @@
         modalContent.innerHTML = html;
         modal.classList.add('active');
 
-        // default tutorial video
         if (id === 'tut') setTutorialVideo('light');
       }
 
@@ -555,7 +501,6 @@
         e.stopPropagation();
       });
 
-      // init
       applyLang('it');
     });
   </script>
