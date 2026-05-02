@@ -13,6 +13,59 @@
     .intro-screen.hidden { display: none; }
     .main-screen { display: none; }
     .main-screen.active { display: flex; }
+
+    /* Video banner */
+    #introBanner {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.7s ease, opacity 0.6s ease;
+    }
+    #introBanner.open {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    /* Pulsante audio */
+    #muteBtn {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.55);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.2s;
+    }
+    #muteBtn:hover { background: rgba(0,0,0,0.8); }
+
+    /* Pulsante chiudi video */
+    #closeBannerBtn {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: rgba(0,0,0,0.55);
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      color: white;
+      font-size: 16px;
+      line-height: 1;
+      transition: background 0.2s;
+    }
+    #closeBannerBtn:hover { background: rgba(0,0,0,0.8); }
   </style>
 </head>
 
@@ -84,7 +137,7 @@
         </div>
       </div>
 
-      <div class="text-center mb-8 md:mb-12">
+      <div class="text-center mb-6 md:mb-8">
         <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mb-2">GN Suite Garden</h1>
         <p class="text-gray-600 text-lg flex items-center justify-center gap-2">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -98,6 +151,41 @@
         <p id="clickInfo" class="text-gray-500 mt-2">Clicca sulle icone per le informazioni 👇📌</p>
       </div>
 
+      <!-- ═══════════════════════════════════════════
+           VIDEO BANNER — appare sopra le icone
+      ════════════════════════════════════════════ -->
+      <div id="introBanner" class="relative mb-6 md:mb-8 rounded-2xl overflow-hidden shadow-xl bg-black">
+        <video
+          id="introVideo"
+          class="w-full block"
+          autoplay
+          muted
+          playsinline
+          loop
+        >
+          <source src="./intro-garden.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Pulsante muto/audio -->
+        <button id="muteBtn" title="Attiva/disattiva audio" aria-label="Toggle audio">
+          <!-- icona MUTED (visibile di default) -->
+          <svg id="iconMuted" class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/>
+          </svg>
+          <!-- icona AUDIO ON (nascosta di default) -->
+          <svg id="iconSound" class="w-5 h-5 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15.536 8.464a5 5 0 010 7.072M12 6v12m-6.464-9.536a5 5 0 000 7.072M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+          </svg>
+        </button>
+
+        <!-- Pulsante chiudi banner -->
+        <button id="closeBannerBtn" title="Chiudi video" aria-label="Chiudi video">✕</button>
+      </div>
+
+      <!-- GRIGLIA ICONE -->
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
 
         <!-- Appartamento -->
@@ -248,14 +336,8 @@
     let lang = 'it';
 
     const tutorialVideos = {
-      it: {
-        light: './luce-in-garden.mp4',
-        boiler: './caldaia-it-garden.mp4'
-      },
-      en: {
-        light: './luce-en-garden.mp4',
-        boiler: './caldaia-en-garden.mp4'
-      }
+      it: { light: './luce-in-garden.mp4', boiler: './caldaia-it-garden.mp4' },
+      en: { light: './luce-en-garden.mp4', boiler: './caldaia-en-garden.mp4' }
     };
 
     function setTutorialVideo(key) {
@@ -382,24 +464,56 @@
 
     document.addEventListener('DOMContentLoaded', function () {
       const introScreen = document.getElementById('introScreen');
-      const mainScreen = document.getElementById('mainScreen');
-      const modal = document.getElementById('modal');
-      const modalBox = document.getElementById('modalBox');
-      const modalTitle = document.getElementById('modalTitle');
+      const mainScreen  = document.getElementById('mainScreen');
+      const modal       = document.getElementById('modal');
+      const modalBox    = document.getElementById('modalBox');
+      const modalTitle  = document.getElementById('modalTitle');
       const modalContent = document.getElementById('modalContent');
 
-      const startBtn = document.getElementById('startBtn');
+      const startBtn      = document.getElementById('startBtn');
       const closeModalBtn = document.getElementById('closeModalBtn');
 
       const btnItIntro = document.getElementById('btnItIntro');
       const btnEnIntro = document.getElementById('btnEnIntro');
-      const btnItMain = document.getElementById('btnItMain');
-      const btnEnMain = document.getElementById('btnEnMain');
+      const btnItMain  = document.getElementById('btnItMain');
+      const btnEnMain  = document.getElementById('btnEnMain');
 
+      // ── Video banner ────────────────────────────────────────
+      const introBanner   = document.getElementById('introBanner');
+      const introVideo    = document.getElementById('introVideo');
+      const muteBtn       = document.getElementById('muteBtn');
+      const iconMuted     = document.getElementById('iconMuted');
+      const iconSound     = document.getElementById('iconSound');
+      const closeBannerBtn = document.getElementById('closeBannerBtn');
+
+      // Apre il banner + avvia il video quando si clicca "Esplora"
       startBtn.addEventListener('click', function () {
         introScreen.classList.add('hidden');
         mainScreen.classList.add('active');
+
+        // Piccolo delay per far scattare la transizione CSS
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            introBanner.classList.add('open');
+            introVideo.muted = true;
+            introVideo.play().catch(() => {});
+          });
+        });
       });
+
+      // Toggle muto/audio
+      muteBtn.addEventListener('click', function () {
+        introVideo.muted = !introVideo.muted;
+        iconMuted.classList.toggle('hidden', !introVideo.muted);
+        iconSound.classList.toggle('hidden', introVideo.muted);
+      });
+
+      // Chiudi banner con animazione
+      closeBannerBtn.addEventListener('click', function () {
+        introBanner.classList.remove('open');
+        setTimeout(() => { introVideo.pause(); }, 700);
+      });
+      // ────────────────────────────────────────────────────────
 
       function applyLang(l) {
         lang = l;
@@ -407,13 +521,13 @@
         if (l === 'it') {
           btnItIntro.className = 'px-3 py-1 rounded-lg font-semibold transition-all bg-green-600 text-white shadow-lg';
           btnEnIntro.className = 'px-3 py-1 rounded-lg font-semibold transition-all bg-white/90 text-gray-700 hover:bg-white';
-          btnItMain.className = 'px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-green-600 text-white';
-          btnEnMain.className = 'px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-white text-gray-600 hover:bg-gray-100';
+          btnItMain.className  = 'px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-green-600 text-white';
+          btnEnMain.className  = 'px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-white text-gray-600 hover:bg-gray-100';
         } else {
           btnEnIntro.className = 'px-3 py-1 rounded-lg font-semibold transition-all bg-green-600 text-white shadow-lg';
           btnItIntro.className = 'px-3 py-1 rounded-lg font-semibold transition-all bg-white/90 text-gray-700 hover:bg-white';
-          btnEnMain.className = 'px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-green-600 text-white';
-          btnItMain.className = 'px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-white text-gray-600 hover:bg-gray-100';
+          btnEnMain.className  = 'px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-green-600 text-white';
+          btnItMain.className  = 'px-4 py-2 rounded-lg font-semibold transition-all flex items-center gap-2 bg-white text-gray-600 hover:bg-gray-100';
         }
 
         document.getElementById('welcomeSubtitle').textContent = l === 'it' ? 'Benvenuti a GN Suite Garden' : 'Welcome to GN Suite Garden';
@@ -426,25 +540,18 @@
         document.getElementById('intro3').textContent = l === 'it'
           ? 'Sentiti come a casa — e se hai bisogno di qualsiasi cosa, siamo sempre disponibili!'
           : "Feel at home — and if you need anything, we're always available!";
-        document.getElementById('startBtn').textContent = l === 'it' ? "Inizia l'Esplorazione 🚀" : 'Start Exploring 🚀';
-        document.getElementById('clickInfo').textContent = l === 'it' ? 'Clicca sulle icone per le informazioni 👇📌' : 'Click on the icons for information 👇📌';
+        document.getElementById('startBtn').textContent   = l === 'it' ? "Inizia l'Esplorazione 🚀" : 'Start Exploring 🚀';
+        document.getElementById('clickInfo').textContent  = l === 'it' ? 'Clicca sulle icone per le informazioni 👇📌' : 'Click on the icons for information 👇📌';
 
         document.querySelectorAll('.txt').forEach(el => {
           el.textContent = el.dataset[l];
         });
-
-        if (modal.classList.contains('active')) {
-          const currentTitle = modalTitle.textContent || '';
-          if (currentTitle.includes('Tutorial')) {
-            setTutorialVideo('light');
-          }
-        }
       }
 
       btnItIntro.addEventListener('click', () => applyLang('it'));
       btnEnIntro.addEventListener('click', () => applyLang('en'));
-      btnItMain.addEventListener('click', () => applyLang('it'));
-      btnEnMain.addEventListener('click', () => applyLang('en'));
+      btnItMain.addEventListener('click',  () => applyLang('it'));
+      btnEnMain.addEventListener('click',  () => applyLang('en'));
 
       function openModal(id) {
         const d = data[lang][id];
